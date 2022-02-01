@@ -1,0 +1,16 @@
+- group:    Tutorial
+  start:    01-02-2022 00:00
+  deadline: 22-02-2022 00:00
+  tasks:
+    - task: add
+      score: 0
+- group:    Intro
+  start:    01-02-2022 00:00
+  deadline: 22-02-2022 00:00
+  tasks:
+    - task: combinations
+      score: 100
+    - task: conway
+      score: 100
+    - task: min-queue
+      score: 100
