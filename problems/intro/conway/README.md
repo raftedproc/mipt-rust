@@ -15,9 +15,9 @@ The next state is created by applying the above rules simultaneously to every ce
 
 ## Questions
 
-- When we should use `enum`? How `match` can help us to avoid nasty `if`'s?
-- Why shouldn't we use `Vec<Vec<Cell>>` instead of `Vec<Cell>` in definition of the grid?
+- When should we use `enum`? How can `match` help us to avoid nasty `if`'s?
+- Why shouldn't we use `Vec<Vec<Cell>>` instead of `Vec<Cell>` in the definition of the grid?
 
 ## Advanced level
 
-Change `Grid::neighbours` so that it will return some iterator instead of `Vec`, i.e make no allocation solution.
+Change `Grid::neighbours` so that it will return some iterator instead of `Vec`, i.e. make no allocation solution.

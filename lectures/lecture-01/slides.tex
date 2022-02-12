@@ -31,7 +31,7 @@
 
 \begin{frame}[c]
 \frametitle{What is this course about?}
-The Rust programming language, it's basic and advanced features.
+The Rust programming language, its basic and advanced features.
 \begin{itemize}
     \item Basics: syntax, collections, traits...
     \item Some nightly features, such as trait specialization.
@@ -78,7 +78,7 @@ Pros:
 
 Cons:
 \begin{itemize}
-    \item Very easy to make a mistake when "typing".
+    \item Easy to make a mistake when "typing".
     \item Very hard to read.
     \item Difficult to debug.
     \item Hard to reuse existing code.
@@ -95,10 +95,10 @@ Cons:
 
 Pros:
 \begin{itemize}
-    \item Direct execution of code written by engineer.
+    \item Direct execution of the code written by an engineer.
     \item Don't require any runtime.
-    \item Not possible to type nonexistent command or write incorrect offset.
-    \item Mnemonics easier to read than machine codes.
+    \item Not possible to type a nonexistent command or write an incorrect offset.
+    \item Mnemonics are easier to read than machine codes.
 \end{itemize}
 
 Cons:
@@ -120,14 +120,14 @@ Cons:
 Pros:
 \begin{itemize}
 \item Don't require any runtime.
-\item Provides thin layer of abstraction, allowing to write complex but still readable code: structures, functions, pointers...
+\item Provides a thin layer of abstraction, allowing to write complex but still readable code: structures, functions, pointers...
 \item Abstraction over hardware.
 \end{itemize}
 
 Cons:
 \begin{itemize}
-\item Segfaults, buffer overflows, null pointers, data races, \textbf{undefined behaviour}...
-\item Not very productive, lacks syntax sugar.
+\item Segfaults, buffer overflows, null pointers, data races, \textbf{undefined behavior}...
+\item Not very productive lacks syntax sugar.
 \item No unified build system and dependency management.
 \end{itemize}
 \end{frame}
@@ -174,7 +174,7 @@ Bug in \texttt{glibc} that resulted in vulnerability in OpenSSL.
   srandom((̶g̶e̶t̶p̶i̶d̶(̶)̶ ̶<̶<̶ ̶1̶6̶)̶ ̶^̶ ̶t̶v̶.̶t̶v̶_̶s̶e̶c̶ ̶^̶ ̶t̶v̶.̶t̶v̶_̶u̶s̶e̶c̶ ^ junk);
 \end{minted}
 
-One day, compiler decided to remove everything except junk :D
+One day, the compiler decided to remove everything except junk :D
 
 \end{frame}
 
@@ -252,7 +252,7 @@ The only stupidity is crap software violating well known rules that have existed
     \textit{Andreas Schwab, \texttt{glibc} developer}
 \end{flushright}
 
-You can call it "crap software" all you like, but the thing is, if memcpy doesn't warn about overlaps, there's no test coverage, and in that case even well-designed software will have bugs.
+You can call it "crap software" all you like, but the thing is, if \texttt{memcpy} doesn't warn about overlaps, there's no test coverage, and in that case, even well-designed software will have bugs.
 \begin{flushright}
     \textit{Linus Torvalds}
 \end{flushright}
@@ -268,7 +268,7 @@ You can call it "crap software" all you like, but the thing is, if memcpy doesn'
 Pros:
 \begin{itemize}
     \item Don't require any runtime.
-    \item Provides thick layer of abstraction, allowing to write complex readable code: classes, templates, lambda functions, iterators...
+    \item Provides a thick layer of abstraction, allowing to write complex readable code: classes, templates, lambda functions, iterators...
     \item Abstraction over hardware and memory due to OOP.
 \end{itemize}
 
@@ -301,7 +301,7 @@ Cons:
 
 \begin{frame}[fragile]
 \frametitle{I love C++!}
-Fun fact: will not be fixed until C++26, because proposal in C++23 was rejected.
+Fun fact: it will not be fixed until C++26 because the proposal in C++23 was rejected.
 
 \begin{center}
     \includegraphics[width=\textwidth,height=7cm,keepaspectratio]{images/cpp-meme.jpg}
@@ -312,7 +312,7 @@ Fun fact: will not be fixed until C++26, because proposal in C++23 was rejected.
 
 \begin{frame}
 \frametitle{A brief history of programming languages}
-At the meantime: languages such with garbage collection.
+In the meantime: languages such as garbage collection.
 
 \textbf{Java, C\# and similar languages}
 
@@ -329,15 +329,15 @@ Pros:
 
 \begin{frame}
 \frametitle{A brief history of programming languages}
-At the meantime: languages such with garbage collection.
+In the meantime: languages with garbage collection.
 
 \textbf{Java, C\# and similar languages}
 
 Cons:\footnote{\href{https://reberhardt.com/cs110l/spring-2020/slides/lecture-01.pdf}{CS110L Lecture 1 Slides.}}
 \begin{itemize}
     \item Expensive: no matter what type of garbage collection is used, there will always be nontrivial memory overhead.
-    \item Disruptive: drop what you’re doing - it’s time for GC!
-    \item Non-deterministic: when will the next GC pause be? Who knows! Depends on how much memory is being used.
+    \item Disruptive: drop what you're doing - it's time for GC!
+    \item Non-deterministic: when will the next GC pause be? Who knows! It depends on how much memory is being used.
 \end{itemize}
 \end{frame}
 
@@ -357,7 +357,7 @@ Cons:\footnote{\href{https://reberhardt.com/cs110l/spring-2020/slides/lecture-01
 \frametitle{Garbage Collection cons}
 \href{https://engineering.linkedin.com/blog/2016/02/eliminating-large-jvm-gc-pauses-caused-by-background-io-traffic}{Eliminating Large JVM GC Pauses Caused by Background IO Traffic}
 
-In our production environments, we have seen unexplainable large STW pauses (> 5 seconds) in our mission-critical Java applications.
+In our production environments, we have seen unexplainable significant STW pauses (> 5 seconds) in our mission-critical Java applications.
 
 \begin{flushright}\textit{LinkedIn Engineering}\end{flushright}
 
@@ -367,14 +367,14 @@ In our production environments, we have seen unexplainable large STW pauses (> 5
 
 \begin{frame}
 \frametitle{A brief history of programming languages}
-At the meantime: languages such with garbage collection.
+In the meantime: languages with garbage collection.
 
 \textbf{Java, C\# and similar languages}
 
 Cons:
 \begin{itemize}
-    \item Precludes manual optimization: in some situations, you may want to structure your data in memory in a specific way in order to achieve high cache performance. GC can’t know how you will use memory, so it optimizes for the average use case.
-    \item Bad interoperability.
+    \item Precludes manual optimization: in some situations, you may want to structure your data in memory in a specific way to achieve high cache performance. GC can't know how you will use memory, so it optimizes for the average use case.
+    \item Have poor interoperability.
     \item \textbf{Are not suitable for system programming.}\footnote{Actually suitable, but GC limits use cases.}
 \end{itemize}
 \end{frame}
@@ -411,14 +411,14 @@ Usual properties:
     \item High security.
 \end{itemize}
 
-At the same time we try to pursue two goals: performance and safety.
+At the same time, we try to pursue two goals: performance and safety.
 \end{frame}
 
 % ----------------------------------------------------------------- %
 
 \begin{frame}
 \frametitle{A brief history of programming languages}
-Why C is still used for system programming?
+Why is C still used for system programming?
 
 \begin{itemize}
     \item Assembly is "strictly better" than Machine codes.
@@ -439,8 +439,8 @@ Will there be a language "strictly better" than C?
 Pros:
 \begin{itemize}
     \item Don't require any runtime.
-    \item Provides thick layer of abstraction, allowing to write complex readable code: structures, generics, traits, closures, iterators...
-    \item \textbf{No memory unsafety and undefined behaviour.}\footnote{Unless you or your dependencies use \texttt{unsafe} incorrectly.}
+    \item Provides a thick layer of abstraction, allowing to write complex readable code: structures, generics, traits, closures, iterators...
+    \item \textbf{No memory unsafety and undefined behavior.}\footnote{Unless you or your dependencies use \texttt{unsafe} incorrectly.}
     \item Modern standard without any\footnote{There exist not good decisions.} incorrect decisions.
     \item Unified build system and dependency management.
 \end{itemize}
@@ -458,7 +458,7 @@ Cons:
 \begin{itemize}
     \item Difficult to use and especially learn.
     \item Compiled, thus no such simple coding as in, for instance, Python.
-    \item If you're using a lot of optimizations, or writing a software that frequently works with pointers, you'll have to use \textbf{a lot} of \texttt{unsafe}. May be inconvenient.
+    \item If you're using a lot of optimizations or writing software that frequently works with pointers, you'll have to use \textbf{a lot} of \texttt{unsafe}. It may be inconvenient.
 \end{itemize}
 \end{frame}
 
@@ -467,7 +467,7 @@ Cons:
 \begin{frame}
 \frametitle{What is safety after all?}
 
-Let's take a look at \href{run:code/find-bugs.c}{C code of simple vector} and find some bugs on it to intuitively understand the Rust's features.
+Let's take a look at \href{run:code/vector.c}{C code of simple vector} and find some bugs on it to intuitively understand the Rust's features.
 
 \end{frame}
 
@@ -505,7 +505,7 @@ Let's take a look at \href{run:code/find-bugs.c}{C code of simple vector} and fi
   }
 \end{minted}
 
-Wouldn’t it be nice if the compiler realized that \textt{vec} “lives” within those two curly braces and therefore its address shouldn’t be returned from the function?
+Wouldn't it be nice if the compiler realized that \textt{vec} "lives" within those two curly braces, and therefore its address shouldn't be returned from the function?
 
 \end{frame}
 
@@ -545,7 +545,7 @@ Wouldn’t it be nice if the compiler realized that \textt{vec} “lives” with
   }
 \end{minted}
 
-Wouldn’t it be nice if the compiler enforced that free is called on a variable, that variable can no longer be used?
+Wouldn't it be nice if the compiler enforced that free is called on a variable, that variable can no longer be used?
 
 \end{frame}
 
@@ -588,7 +588,7 @@ Wouldn’t it be nice if the compiler enforced that free is called on a variable
   }
 \end{minted}
 
-Wouldn’t it be nice if the compiler stopped us from modifying the data \texttt{n} was pointing to (as it does in \texttt{vec\_push})?
+Wouldn't it be nice if the compiler stopped us from modifying the data \texttt{n} was pointing to (as it does in \texttt{vec\_push})?
 
 \end{frame}
 
@@ -632,7 +632,7 @@ Wouldn’t it be nice if the compiler stopped us from modifying the data \texttt
   }
 \end{minted}
 
-Wouldn’t it be nice if the compiler noticed when a piece of heap data no longer had anything pointing to it? (and so then could easily be freed?)
+Wouldn't it be nice if the compiler noticed when a piece of heap data no longer had anything pointing to it? (and so then could easily be freed?)
 
 \end{frame}
 
@@ -744,9 +744,9 @@ RustBelt - formal model of Rust that includes core conceptions of language (borr
 
 \begin{itemize}
     \item Already wrote a lot of code in another language.
-    \item Company's internal tools do not support Rust and maintenance could be costly.
-    \item In big company, you should have own committee to help support language in company. 
-    \item Hard to find a developers in such a difficult and fresh language.
+    \item Company's internal tools do not support Rust, and maintenance could be costly.
+    \item In a big company, you should have your committee to help support language in the company. 
+    \item Hard to find developers in such a difficult and fresh language.
     \item Rust developers are usually talented people with high salary expectations.
 \end{itemize}
 \end{frame}
@@ -758,9 +758,9 @@ RustBelt - formal model of Rust that includes core conceptions of language (borr
 
 \begin{itemize}
     \item Already wrote a lot of code in another language.
-    \item Company's internal tools do not support Rust and maintenance could be costly.
-    \item In big company, you should have own committee to help support language in company. 
-    \item Hard to find a developers in such a difficult and fresh language.
+    \item Company's internal tools do not support Rust, and maintenance could be costly.
+    \item In a big company, you should have your committee to help support language in the company. 
+    \item Hard to find developers in such a difficult and fresh language.
     \item Rust developers are usually talented people with high salary expectations.
 \end{itemize}
 
@@ -960,7 +960,7 @@ Is a valid expression, the expression:
     e as U2
 \end{minted}
 
-Is not necessarily so.
+It is not necessarily so.
 \end{frame}
 
 % ----------------------------------------------------------------- %
@@ -1205,7 +1205,7 @@ Meanwhile in Python:
     let mut buf = [0u8; 1024];
 \end{minted}
 
-The size of array is constant that is known at compile time, and the part of the type.
+The size of an array is a constant known at compile-time and the part of the type.
 \end{frame}
 
 % ----------------------------------------------------------------- %
@@ -1343,7 +1343,7 @@ Structures are defined via \texttt{struct} keyword:
     }
 \end{minted}
 
-Rust \textbf{do not} give any guaranties about memory representation by default. Even this structures can be different in memory!
+Rust \textbf{do not} give any guarantees about memory representation by default. Even these structures can be different in memory!
 
 \begin{minted}[fontsize=\small]{rust}
     struct A {
@@ -1605,7 +1605,7 @@ Time for \texttt{for} loops!
 
 \begin{frame}[fragile]
 \frametitle{Enumerations}
-Enumerations is one of the best features in Rust :)
+Enumerations are one of the best features in Rust :)
 
 \begin{minted}{rust}
     enum MyEnum {
@@ -2046,7 +2046,7 @@ We can create a slice to a vector or array. A slice is a contiguous sequence of 
 
 \begin{frame}[fragile]
 \frametitle{Panic!}
-In Rust, when we encounter unrecoverable error, we \texttt{panic!}
+In Rust, when we encounter an unrecoverable error, we \texttt{panic!}
 
 \begin{minted}{rust}
     let x = 42;
@@ -2055,7 +2055,7 @@ In Rust, when we encounter unrecoverable error, we \texttt{panic!}
     }
 \end{minted}
 
-There's some useful macros that \texttt{panic!}
+There are some useful macros that \texttt{panic!}
 
 \begin{itemize}
     \item \texttt{unimplemented!}
@@ -2102,7 +2102,7 @@ Rust always requires to return something correct.
     fn func() -> i32 {}
 \end{minted}
 
-How this code works?
+How does this code work?
 
 \begin{minted}{rust}
     fn func() -> i32 {
@@ -2123,7 +2123,7 @@ Rust always requires to return something correct.
     fn func() -> i32 {}
 \end{minted}
 
-How this code works?
+How does this code work?
 
 \begin{minted}{rust}
     fn func() -> i32 {
@@ -2288,7 +2288,7 @@ error[E0382]: borrow of moved value: `v`
 
 \begin{frame}[fragile]
 \frametitle{Ownership rules}
-Given what we just saw, how can the following be valid syntax?
+Given what we just saw, how can the following be the valid syntax?
 
 \begin{minted}{rust}
     fn om_nom_nom(n: u32) {
@@ -2311,9 +2311,9 @@ Given what we just saw, how can the following be valid syntax?
 \frametitle{Ownership rules}
 \begin{itemize}
     \item Say you have a group of lawyers that are reviewing and signing a contract over Google Docs (just pretend it's true :) )
-    \item What are some ground rules we’d need to set in order to avoid chaos?
-    \item If someone modifies the contract before everyone else reviews/signs it, that’s fine.
-    \item But if someone modifies the contract while others are reviewing it, people might miss changes and think they’re signing a contract that says something else.
+    \item What are some ground rules we'd need to set to avoid chaos?
+    \item If someone modifies the contract before everyone else reviews/signs it, that's fine.
+    \item But if someone modifies the contract while others are reviewing it, people might miss changes and think they're signing a contract that says something else.
     \item We should allow a single person to modify, or everyone to read, but not both.
 \end{itemize}
 \end{frame}
@@ -2324,9 +2324,9 @@ Given what we just saw, how can the following be valid syntax?
 \frametitle{Ownership rules}
 \begin{itemize}
     \item Say you have a group of lawyers that are reviewing and signing a contract over Google Docs (just pretend it's true :) )
-    \item What are some ground rules we’d need to set in order to avoid chaos?
-    \item If someone modifies the contract before everyone else reviews/signs it, that’s fine.
-    \item But if someone modifies the contract while others are reviewing it, people might miss changes and think they’re signing a contract that says something else.
+    \item What are some ground rules we'd need to set to avoid chaos?
+    \item If someone modifies the contract before everyone else reviews/signs it, that's fine.
+    \item But if someone modifies the contract while others are reviewing it, people might miss changes and think they're signing a contract that says something else.
     \item We should allow a single person to modify, or everyone to read, but not both.
 \end{itemize}
 \end{frame}
@@ -2337,7 +2337,7 @@ Given what we just saw, how can the following be valid syntax?
 \frametitle{Borrowing intuition}
 \begin{itemize}
     \item I should be able to have as many "const" pointers to a piece of data that I like.
-    \item However if I have a "non-const" pointer to a piece of data at the same time, this could invalidate what the other const pointers are viewing. (e.g. they can become dangling pointers...)
+    \item However, if I have a "non-const" pointer to a piece of data at the same time, this could invalidate what the other const pointers are viewing. (e.g., they can become dangling pointers...)
     \item If I have at most one "non-const" pointer at any given time, this should be OK.
 \end{itemize}
 \end{frame}
@@ -2349,7 +2349,7 @@ Given what we just saw, how can the following be valid syntax?
 \begin{itemize}
     \item We can have multiple shared (immutable) references at once (with no mutable references) to a value.
     \item We can have only one mutable reference at once. (no shared references to it)
-    \item This is a paradigm that pops up a lot in systems programming, especially when you have "readers" and "writers". In fact, you've already studied it in the course of Theory and Practice of Concurrency.
+    \item This paradigm pops up a lot in systems programming, especially when you have "readers" and "writers". In fact, you've already studied it in the course of Theory and Practice of Concurrency.
 \end{itemize}
 \end{frame}
 
@@ -2358,8 +2358,8 @@ Given what we just saw, how can the following be valid syntax?
 \begin{frame}[fragile]
 \frametitle{Borrowing}
 \begin{itemize}
-    \item The lifetime of a value starts when it’s created and ends the \textit{last time it’s used}.
-    \item Rust doesn’t let you have a reference to a value that lasts longer than the value’s lifetime.
+    \item The lifetime of a value starts when it's created and ends the \textit{last time it's used}.
+    \item Rust doesn't let you have a reference to a value that lasts longer than the value's lifetime.
     \item Rust computes lifetimes at compile time using static analysis. (this is often an over-approximation!)
     \item Rust calls the special "drop" function on a value once its lifetime ends. (this is essentially a destructor)
 \end{itemize}
@@ -2422,7 +2422,7 @@ Given what we just saw, how can the following be valid syntax?
     // Who cleans the memory?
 \end{minted}
 
-Invisible flag on stack: is the variable initialized?
+Invisible flag on the stack: is the variable initialized?
 \end{frame}
 
 % ----------------------------------------------------------------- %

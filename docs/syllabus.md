@@ -11,7 +11,7 @@ This document is the course syllabus. It contains the grading and lecture course
   - 1 point - Good(7) is maximum;
   - 2 points - Excellent(9) is maximum;
   - 3 points - Excellent(10) is maximum.
-- Let `project_max()` be the function, which returns your maximum mark (4, 7, 9 or 10) depending on project points, `my_score()` the sum of your scores, and `max_score()` the sum of all scores without deadline penalties. If all of the obligatory problems solved, then your mark is:
+- Let `project_max()` be the function, which returns your maximum mark (4, 7, 9 or 10) depending on project points, `my_score()` the sum of your scores, and `max_score()` the sum of all scores without deadline penalties. If all of the obligatory problems are solved, then your mark is:
   - `min(project_max(), max(3, round(10 * my_score() / max_score())))`
 
 ## Lectures program
@@ -22,7 +22,7 @@ This document is the course syllabus. It contains the grading and lecture course
     - `let` and `mut` keywords. Data types `i8...i128`, `u8...u128`, `isize`, `usize`, `f32`, `f64`, `bool`. Literals.
     - Shadowing. Type inference.
     - `as` keyword for primitive casts. Non-transitivity of casting.
-    - Compound types `array` and `tuple`. Unit type `()`. What changes when their size is big.
+    - Compound types `array` and `tuple`. Unit type `()`.
     - `T`, `&mut T`, `&T`.
     - Remind of C++ `std::reference_wrapper`.
     - Functions. `return` keyword. Expressions and statements.
@@ -33,7 +33,7 @@ This document is the course syllabus. It contains the grading and lecture course
     - Introduction to `Vec` and its interface. Slice `&[T]`.
     - `panic!`, `unimplemented!`, `unreachable!`, `todo!`, `println!`, `assert!`, `assert_eq!`.
     - Inhabited type `!`.
-    - Borrow checker and how not to give up at the beginning. Borrowing mechanism.
+    - Borrow checker and how not to give up at the beginning. The borrowing mechanism.
     - Introduction to Rust ecosystem. VS Code plugins: official and rust-analyzer.
     - `std::prelude`. Basic usage of Cargo and rustc.
 
@@ -57,11 +57,12 @@ This document is the course syllabus. It contains the grading and lecture course
 
 3. Traits. Functional programming features. Iterators.
     - Traits. Return type polymorphism. Auto traits. `where` keyword. Extension traits.
-    - Basic library traits and their methods. `Default`, `Clone`, `Copy`. Why aren't they derived by default? `Ord`, `PartialOrd`. `Eq`, `PartialEq`. `Hash`, `Hasher`. `Drop`, `ManuallyDrop` and RAII. Relying on drop order. `Deref`, `DerefMut`, `Borrow`. `Index` and `IndexMut`.
+    - Basic library traits and their methods. `Default`, `Clone`, `Copy`. Why aren't they derived by default? `Ord`, `PartialOrd`. `Eq`, `PartialEq`. `Hash`, `Hasher`. `Drop`, `ManuallyDrop`, and RAII. Relying on drop order. `Deref`, `DerefMut`, `Borrow`. `Index` and `IndexMut`.
     - Module `std::ops`. Traits `Add`, `Sub`, `Mul`, `Div`, `Rem`, `BitAnd`, `BitOr`, `BitXor`, `Shl`, `Shr` and their `-Assign` variants. `Not`, `Neg`.
-    - Traits `Debug` and `Display`. `Formatter`. The motivation of theirs design. Trait `ToString`.
+    - Traits `Debug` and `Display`. `Formatter`. The motivation of their design. Trait `ToString`.
     - Traits `FnOnce`, `Fn`, `FnMut`. Closures. Capture clause. `move` keyword. Variable rebinding in a separate scope.
     - Module `std::convert`. Traits `From` and `Into`, `TryFrom` and `TryInto`, `AsRef` and `AsMut`. `identity` function.
+    - Compound types `array` and `tuple`: what changes when their size is big.
     - Associated types and consts.
     - Iterators. Laziness of iterators. Traits `Iterator`, `IntoIterator`. Implementation of iterators in `std`. Iterators in Runtime.
     - API of iterators: `map`, `filter`, `fold`, `flatten` and others.
@@ -170,7 +171,7 @@ This document is the course syllabus. It contains the grading and lecture course
     - Tips for writing FFI.
     - Signal handling.
     - Calling to the kernel.
-    - State of Rust in Linux kernel.
+    - The state of Rust in Linux kernel.
 
 13. Techniques of speeding up Rust.
     - Module `core::arch` and SIMD. `core::intrisics` and its usage in standard library.

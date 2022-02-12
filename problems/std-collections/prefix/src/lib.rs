@@ -1,6 +1,6 @@
 #![forbid(unsafe_code)]
 
-pub fn add(x: i32, y: i32) -> i32 {
+pub fn longest_common_prefix(strs: Vec<&str>) -> String {
     // TODO: your code goes here.
     unimplemented!()
 }

@@ -1,8 +1,11 @@
 [workspace]
 members = [
-    # Problems
     "problems/tutorial/add",
-    "problems/intro/min-queue",
     "problems/intro/combinations",
+    "problems/intro/min-queue",
     "problems/intro/conway",
+    "problems/std-collections/comm",
+    "problems/std-collections/mpsc",
+    "problems/std-collections/prefix",
+    "problems/std-collections/lru-cache",
 ]

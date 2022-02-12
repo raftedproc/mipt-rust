@@ -1,6 +1,6 @@
 # Queue with minimum
 
-Implement a queue that can also tell what is the current minimum. **The implementation must have O(1) complexity for all calls.**
+Implement a queue that can also tell what the current minimum is. **The implementation must have $O(1)$ complexity for all calls.**
 
 ## Tips
 

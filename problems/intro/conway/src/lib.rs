@@ -1,4 +1,6 @@
-#[forbid(unsafe_code)]
+#![forbid(unsafe_code)]
+
+////////////////////////////////////////////////////////////////////////////////
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct Grid<T> {
@@ -9,35 +11,38 @@ pub struct Grid<T> {
 
 impl<T: Clone + Default> Grid<T> {
     pub fn new(rows: usize, cols: usize) -> Self {
-        // TODO: your code here.
+        // TODO: your code goes here.
         unimplemented!()
     }
 
     pub fn from_slice(grid: &[T], rows: usize, cols: usize) -> Self {
-        // TODO: your code here.
+        // TODO: your code goes here.
         unimplemented!()
     }
 
     pub fn size(&self) -> (usize, usize) {
-        // TODO: your code here.
+        // First rows, then cols
+        // TODO: your code goes here.
         unimplemented!()
     }
 
     pub fn get(&self, row: usize, col: usize) -> &T {
-        // TODO: your code here.
+        // TODO: your code goes here.
         unimplemented!()
     }
 
     pub fn set(&mut self, value: T, row: usize, col: usize) {
-        // TODO: your code here.
+        // TODO: your code goes here.
         unimplemented!()
     }
 
     pub fn neighbours(&self, row: usize, col: usize) -> Vec<(usize, usize)> {
-        // TODO: your code here.
+        // TODO: your code goes here.
         unimplemented!()
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Cell {
@@ -51,6 +56,8 @@ impl Default for Cell {
     }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 #[derive(PartialEq, Eq)]
 pub struct GameOfLife {
     grid: Grid<Cell>,
@@ -58,19 +65,22 @@ pub struct GameOfLife {
 
 impl GameOfLife {
     pub fn from_grid(grid: Grid<Cell>) -> Self {
-        // TODO: your code here.
+        // TODO: your code goes here.
         unimplemented!()
     }
 
     pub fn get_grid(&self) -> &Grid<Cell> {
-        // TODO: your code here.
+        // TODO: your code goes here.
         unimplemented!()
     }
 
     pub fn step(&mut self) {
-        // TODO: your code here.
+        // TODO: your code goes here.
         unimplemented!()
     }
 
-    // TODO: your code here.
+    fn count(&self, row: usize, col: usize) -> usize {
+        // TODO: your code goes here.
+        unimplemented!()
+    }
 }

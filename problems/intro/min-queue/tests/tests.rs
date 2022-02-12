@@ -1,5 +1,5 @@
 use min_queue::MinQueue;
-use rand::{Rng, thread_rng};
+use rand::Rng;
 use std::collections::VecDeque;
 use ntest::timeout;
 
@@ -141,8 +141,8 @@ fn compare_with_naive() {
 }
 
 #[test]
-#[timeout(1000)]
-fn performance_test() {
+#[timeout(2000)]
+fn stress() {
     let mut queue = MinQueue::new();
     let mut rng = rand::thread_rng();
     for _ in 0..300000 {
