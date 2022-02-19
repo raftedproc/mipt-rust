@@ -2,7 +2,9 @@
 
 use std::collections::VecDeque;
 
+#[derive(Default)]
 pub struct MinQueue<T> {
+    // TODO: your code goes here.
 }
 
 impl<T: Clone + Ord> MinQueue<T> {

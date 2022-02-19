@@ -33,27 +33,28 @@ fn grid_neighbours() {
             .neighbours(1, 1)
             .into_iter()
             .collect::<Vec<_>>(),
-        vec![(0, 0), (0, 1), (0, 2), (1, 0),
-             (1, 2), (2, 0), (2, 1), (2, 2)]
+        vec![
+            (0, 0),
+            (0, 1),
+            (0, 2),
+            (1, 0),
+            (1, 2),
+            (2, 0),
+            (2, 1),
+            (2, 2)
+        ]
     );
 }
 
 #[test]
 fn first_rule() {
-    let grid = get_grid(
-        vec![
-            vec![1, 0, 0],
-            vec![0, 1, 0],
-            vec![0, 0, 0]
-        ]
-    );
-    let final_grid = get_grid(
-        vec![
-            vec![0, 0, 0],
-            vec![0, 0, 0],
-            vec![0, 0, 0]
-        ]
-    );
+    #[rustfmt::skip]
+    let grid = get_grid(vec![
+        vec![1, 0, 0],
+        vec![0, 1, 0],
+        vec![0, 0, 0]
+    ]);
+    let final_grid = get_grid(vec![vec![0, 0, 0], vec![0, 0, 0], vec![0, 0, 0]]);
     let mut game = GameOfLife::from_grid(grid.clone());
     game.step();
     assert!(game.get_grid() == &final_grid);
@@ -61,20 +62,18 @@ fn first_rule() {
 
 #[test]
 fn second_rule() {
-    let grid = get_grid(
-        vec![
-            vec![1, 0, 0],
-            vec![0, 1, 0],
-            vec![0, 0, 1]
-        ]
-    );
-    let final_grid = get_grid(
-        vec![
-            vec![0, 0, 0],
-            vec![0, 1, 0],
-            vec![0, 0, 0]
-        ]
-    );
+    #[rustfmt::skip]
+    let grid = get_grid(vec![
+        vec![1, 0, 0],
+        vec![0, 1, 0],
+        vec![0, 0, 1]
+    ]);
+    #[rustfmt::skip]
+    let final_grid = get_grid(vec![
+        vec![0, 0, 0],
+        vec![0, 1, 0],
+        vec![0, 0, 0]
+    ]);
     let mut game = GameOfLife::from_grid(grid.clone());
     game.step();
     assert!(game.get_grid() == &final_grid);
@@ -82,20 +81,13 @@ fn second_rule() {
 
 #[test]
 fn third_rule() {
-    let grid = get_grid(
-        vec![
-            vec![0, 1, 0],
-            vec![1, 1, 1],
-            vec![0, 1, 0]
-        ]
-    );
-    let final_grid = get_grid(
-        vec![
-            vec![1, 1, 1],
-            vec![1, 0, 1],
-            vec![1, 1, 1]
-        ]
-    );
+    #[rustfmt::skip]
+    let grid = get_grid(vec![
+        vec![0, 1, 0],
+        vec![1, 1, 1],
+        vec![0, 1, 0]
+    ]);
+    let final_grid = get_grid(vec![vec![1, 1, 1], vec![1, 0, 1], vec![1, 1, 1]]);
     let mut game = GameOfLife::from_grid(grid.clone());
     game.step();
     assert!(game.get_grid() == &final_grid);
@@ -103,20 +95,18 @@ fn third_rule() {
 
 #[test]
 fn fourth_rule() {
-    let grid = get_grid(
-        vec![
-            vec![0, 0, 0],
-            vec![0, 1, 0],
-            vec![1, 0, 1]
-        ]
-    );
-    let final_grid = get_grid(
-        vec![
-            vec![0, 0, 0],
-            vec![0, 1, 0],
-            vec![0, 1, 0]
-        ]
-    );
+    #[rustfmt::skip]
+    let grid = get_grid(vec![
+        vec![0, 0, 0],
+        vec![0, 1, 0],
+        vec![1, 0, 1]
+    ]);
+    #[rustfmt::skip]
+    let final_grid = get_grid(vec![
+        vec![0, 0, 0],
+        vec![0, 1, 0],
+        vec![0, 1, 0]
+    ]);
     let mut game = GameOfLife::from_grid(grid.clone());
     game.step();
     assert!(game.get_grid() == &final_grid);
@@ -124,76 +114,62 @@ fn fourth_rule() {
 
 #[test]
 fn glider() {
-    let grid1 = get_grid(
-        vec![
-            vec![0, 1, 0, 0, 0, 0],
-            vec![0, 0, 1, 0, 0, 0],
-            vec![1, 1, 1, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 1, 1],
-            vec![0, 0, 0, 0, 1, 1],
-        ]
-    );
-    let grid2 = get_grid(
-        vec![
-            vec![0, 0, 0, 0, 0, 0],
-            vec![1, 0, 1, 0, 0, 0],
-            vec![0, 1, 1, 0, 0, 0],
-            vec![0, 1, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 1, 1],
-            vec![0, 0, 0, 0, 1, 1],
-        ]
-    );
-    let grid3 = get_grid(
-        vec![
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 1, 0, 0, 0],
-            vec![1, 0, 1, 0, 0, 0],
-            vec![0, 1, 1, 0, 0, 0],
-            vec![0, 0, 0, 0, 1, 1],
-            vec![0, 0, 0, 0, 1, 1],
-        ]
-    );
-    let grid4 = get_grid(
-        vec![
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 1, 0, 0, 0, 0],
-            vec![0, 0, 1, 1, 0, 0],
-            vec![0, 1, 1, 1, 0, 0],
-            vec![0, 0, 0, 1, 1, 1],
-            vec![0, 0, 0, 0, 1, 1],
-        ]
-    );
-    let grid5 = get_grid(
-        vec![
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 1, 0, 0, 0],
-            vec![0, 0, 0, 1, 0, 0],
-            vec![0, 1, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 1],
-            vec![0, 0, 0, 1, 0, 1],
-        ]
-    );
-    let grid6 = get_grid(
-        vec![
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 1, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 1, 0],
-            vec![0, 0, 0, 0, 1, 0],
-        ]
-    );
-    let grid7 = get_grid(
-        vec![
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 0],
-            vec![0, 0, 0, 0, 0, 0],
-        ]
-    );
+    let grid1 = get_grid(vec![
+        vec![0, 1, 0, 0, 0, 0],
+        vec![0, 0, 1, 0, 0, 0],
+        vec![1, 1, 1, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 1, 1],
+        vec![0, 0, 0, 0, 1, 1],
+    ]);
+    let grid2 = get_grid(vec![
+        vec![0, 0, 0, 0, 0, 0],
+        vec![1, 0, 1, 0, 0, 0],
+        vec![0, 1, 1, 0, 0, 0],
+        vec![0, 1, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 1, 1],
+        vec![0, 0, 0, 0, 1, 1],
+    ]);
+    let grid3 = get_grid(vec![
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 1, 0, 0, 0],
+        vec![1, 0, 1, 0, 0, 0],
+        vec![0, 1, 1, 0, 0, 0],
+        vec![0, 0, 0, 0, 1, 1],
+        vec![0, 0, 0, 0, 1, 1],
+    ]);
+    let grid4 = get_grid(vec![
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 1, 0, 0, 0, 0],
+        vec![0, 0, 1, 1, 0, 0],
+        vec![0, 1, 1, 1, 0, 0],
+        vec![0, 0, 0, 1, 1, 1],
+        vec![0, 0, 0, 0, 1, 1],
+    ]);
+    let grid5 = get_grid(vec![
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 1, 0, 0, 0],
+        vec![0, 0, 0, 1, 0, 0],
+        vec![0, 1, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 1],
+        vec![0, 0, 0, 1, 0, 1],
+    ]);
+    let grid6 = get_grid(vec![
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 1, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 1, 0],
+        vec![0, 0, 0, 0, 1, 0],
+    ]);
+    let grid7 = get_grid(vec![
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 0],
+        vec![0, 0, 0, 0, 0, 0],
+    ]);
 
     let mut game = GameOfLife::from_grid(grid1.clone());
     assert!(game.get_grid() == &grid1);

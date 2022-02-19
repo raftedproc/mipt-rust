@@ -21,7 +21,6 @@ impl<T: Clone + Default> Grid<T> {
     }
 
     pub fn size(&self) -> (usize, usize) {
-        // First rows, then cols
         // TODO: your code goes here.
         unimplemented!()
     }
@@ -75,11 +74,6 @@ impl GameOfLife {
     }
 
     pub fn step(&mut self) {
-        // TODO: your code goes here.
-        unimplemented!()
-    }
-
-    fn count(&self, row: usize, col: usize) -> usize {
         // TODO: your code goes here.
         unimplemented!()
     }

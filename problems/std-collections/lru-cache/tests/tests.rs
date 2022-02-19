@@ -1,6 +1,6 @@
 use lru_cache::LRUCache;
-use rand::Rng;
 use ntest::timeout;
+use rand::Rng;
 
 struct NaiveLRUCache<K, V> {
     capacity: usize,
@@ -17,14 +17,14 @@ impl<K: Eq, V> NaiveLRUCache<K, V> {
     }
 
     pub fn get(&mut self, key: &K) -> Option<&V> {
-        let index = self.cache.iter().position(|(a, b)| a == key)?;
+        let index = self.cache.iter().position(|(a, _)| a == key)?;
         let pair = self.cache.remove(index);
         self.cache.push(pair);
         Some(&self.cache.last().unwrap().1)
     }
 
     pub fn insert(&mut self, key: K, value: V) -> Option<V> {
-        if let Some(index) = self.cache.iter().position(|(a, b)| a == &key) {
+        if let Some(index) = self.cache.iter().position(|(a, _)| a == &key) {
             let (_, old_value) = self.cache.remove(index);
             self.cache.push((key, value));
             Some(old_value)
@@ -48,10 +48,10 @@ fn check_zero_capacity() {
 fn should_compile() {
     #[derive(Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
     struct Key {
-        _key: i32
+        _key: i32,
     }
     struct Value {
-        _value: i32
+        _value: i32,
     }
     LRUCache::<Key, Value>::new(1);
 }

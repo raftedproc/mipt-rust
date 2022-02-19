@@ -14,18 +14,18 @@ This can be represented as:
 
 But also as
 
-`B = [U+0063 U+0061 U+0066 U+00E9]` (end with **é**, the combined form)
+`B = [U+0063 U+0061 U+0066 U+00E9]` (ends with **é**, the combined form)
 
-To be clear, we are searching for the longest prefix of equal `[.chars()](https://doc.rust-lang.org/stable/std/primitive.str.html#method.chars)`.
+To be clear, we are searching for the longest prefix of equal [`.chars()`](https://doc.rust-lang.org/stable/std/primitive.str.html#method.chars).
 
 ## Useful links
 
-- [.as_bytes()](https://doc.rust-lang.org/std/string/struct.String.html#method.as_bytes) method.
-- [.char_indices()](https://doc.rust-lang.org/std/string/struct.String.html#method.char_indices) method.
+- [`.as_bytes()`](https://doc.rust-lang.org/std/string/struct.String.html#method.as_bytes) method.
+- [`.char_indices()`](https://doc.rust-lang.org/std/string/struct.String.html#method.char_indices) method.
 
 ## Complexity
 
-Your solution must be $O(n)$. Beware of `[.nth()](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.nth)`: it's linear!
+Your solution must be $O(n)$, where $N$ is the total length of the strings. Beware of [`.nth()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.nth): it's linear!
 
 ## Advanced level
 

@@ -1,7 +1,7 @@
 use min_queue::MinQueue;
+use ntest::timeout;
 use rand::Rng;
 use std::collections::VecDeque;
-use ntest::timeout;
 
 struct NaiveMinQueue<T> {
     data: VecDeque<T>,
@@ -147,9 +147,15 @@ fn stress() {
     let mut rng = rand::thread_rng();
     for _ in 0..300000 {
         match rng.gen_range(0..4) {
-            0 => { queue.pop(); },
-            1 => { queue.min(); },
-            _ => { queue.push(rng.gen::<u64>()); },
+            0 => {
+                queue.pop();
+            }
+            1 => {
+                queue.min();
+            }
+            _ => {
+                queue.push(rng.gen::<u64>());
+            }
         }
     }
 }

@@ -5,6 +5,8 @@ use thiserror::Error;
 
 ////////////////////////////////////////////////////////////////////////////////
 
+// TODO: your code goes here.
+
 ////////////////////////////////////////////////////////////////////////////////
 
 #[derive(Error, Debug)]
@@ -14,6 +16,7 @@ pub struct SendError<T> {
 }
 
 pub struct Sender<T> {
+    // TODO: your code goes here.
 }
 
 impl<T> Sender<T> {
@@ -58,6 +61,7 @@ pub enum ReceiveError {
 }
 
 pub struct Receiver<T> {
+    // TODO: your code goes here.
 }
 
 impl<T> Receiver<T> {

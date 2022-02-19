@@ -1,6 +1,9 @@
 # Rust build
-**/target
-**/Cargo.lock
+/target
+/Cargo.lock
+
+# Student repository
+/solutions
 
 # VS Code settings
 **/.vscode
