@@ -5,8 +5,8 @@ This document is the course syllabus. It contains the grading and lecture course
 ## Grading
 
 - You have to solve all of the obligatory tasks to achieve a Satisfactory mark. Moreover, it's enough for a Satisfactory mark.
-- Every task has a score X. After the deadline (usually 2 weeks) the score linearly lowers from X to X/2.
-- There are 3 projects in the semester. Every project costs 1 point. After the project deadline (usually 3 weeks) the score linearly lowers from 1 to 1/2 for 2 weeks. Your maximum mark is determined by _ceil_ value of these points:
+- Every task has a score X. After the deadline (usually 3 weeks) the score linearly lowers from X to X/2.
+- There are 3 projects in the semester. Every project costs 1 point. After the project deadline (usually 4 weeks) the score linearly lowers from 1 to 1/2 for 2 weeks. Your maximum mark is determined by _ceil_ value of these points:
   - 0 points - Satisfactory(4) is maximum;
   - 1 point - Good(7) is maximum;
   - 2 points - Excellent(9) is maximum;
@@ -30,21 +30,21 @@ This document is the course syllabus. It contains the grading and lecture course
     - `enum`. `size_of` `enum` and discriminant. `std::cmp::Ordering`. Comparing with C++'s `enum` and `union`. Meaning of `_`.
     - Syntax of `if`, `while`, `for`, `loop`. Named `break`. `if`/`while` and `let` syntax sugar.
     - `match`. Matching ranges. Multiple patterns. Binding modes. Destructuring.
-    - Introduction to `Vec` and its interface. Slice `&[T]`.
+    - Introduction to `Vec` and part of its interface. Slice `&[T]`.
     - `panic!`, `unimplemented!`, `unreachable!`, `todo!`, `println!`, `assert!`, `assert_eq!`.
     - Inhabited type `!`.
     - Borrow checker and how not to give up at the beginning. The borrowing mechanism.
     - Introduction to Rust ecosystem. VS Code plugins: official and rust-analyzer.
-    - `std::prelude`. Basic usage of Cargo and rustc.
+    - `std::prelude`. Basic usage of `cargo` and `rustc`.
 
 2. Standard library types and collections.
-    - `Result` and its interface.
-    - `Option`, its interface and compiler optimizations.
-    - `VecDeque` and its interface.
+    - `Vec`, `VecDeque` and their interface.
     - `HashMap`, `HashSet` and their interface. Asymptotics.
     - `BTreeMap`, `BTreeSet` and their interface. Why can't B-Tree be used like `std::map`.
     - `LinkedList`, `BinaryHeap` and their interface.
     - `String`. Random access. UTF-8. `&str` and reminder of C++ `string_view`. `char` and meaning of Unicode scalar value.
+    - `Result` and its interface.
+    - `Option`, its interface and compiler optimizations.
     - Heap allocations: `Box`, `Rc`, `Cow` and their interface. Mention of `Arc`.
     - Why `Rc` is immutable.
     - Module `std::cell`. Interior mutability. `Cell`, `RefCell`. Reentrancy.

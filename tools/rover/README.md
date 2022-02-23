@@ -43,8 +43,8 @@ steps:
 ```
 
 - Toolchains:
-  - `stable` - just regular stable toolchain
-  - `nightly` - latest nightly toolchain
+  - `stable` - just regular stable toolchain.
+  - `nightly` - latest nightly toolchain.
 - Allowed patterns:
   - Here might be any problem subpath and even any Unix shell style pattern. All matched paths **must be files**.
 - Steps - represents the steps of testing. They may be named how you like, `rover` will launch them step-by-step.
@@ -133,14 +133,14 @@ fn unimpl() -> i32 {
   - `PATH` is the root of the problem.
   - `CI` is the string that represents the CI name. Supported ones are:
     - `no-report` (default) - just don't report anything.
-    - `manytask` - send the result to the Manytask of School of Data Analysis.
+    - `manytask` - send the result to the Manytask of the School of Data Analysis.
 - `rover submit --path PATH --solutions-repo REPO --message MSG`
   - Gets problem from `PATH`. The default `PATH` is the current directory.
-  - Copies allowed files to `REPO`. Otherwise, it uses `solutions` folder from the course repository.
   - Changes branch to problem `GROUP/TITLE`, adds files to git, commits with message `MSG`, and pushes to remote. If `MSG` is not set, use some default one).
+  - Copies allowed files to `REPO`. Otherwise, it uses `solutions` folder from the course repository.
 - `rover compose --input INPUT --output OUTPUT`
   - Reads `.compose.yml` from `INPUT` repository.
-  - Prunes OUTPUT directory, ignoring files from `do-not-delete`.
+  - Prunes `OUTPUT` directory, ignoring files from `do-not-delete`.
   - Copies problems and processes sources.
   - Copies tools and processes sources.
   - Copies files to copy.

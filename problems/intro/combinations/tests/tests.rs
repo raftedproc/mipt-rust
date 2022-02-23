@@ -5,7 +5,7 @@ use rand::thread_rng;
 #[test]
 fn simple() {
     assert_eq!(combinations(&[1, 2, 3], 0), vec![vec![]]);
-    assert_eq!(combinations(&[], 42), Vec::<Vec<_>>::new());
+    assert_eq!(combinations(&[], 42), Vec::<Vec<i32>>::new());
     assert_eq!(combinations(&[], 0), vec![vec![]]);
     assert_eq!(combinations(&[1], 1), vec![vec![1]]);
     assert_eq!(

@@ -25,7 +25,7 @@ To be clear, we are searching for the longest prefix of equal [`.chars()`](https
 
 ## Complexity
 
-Your solution must be $O(n)$, where $N$ is the total length of the strings. Beware of [`.nth()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.nth): it's linear!
+Your solution must be O(n), where N is the total length of the strings. Beware of [`.nth()`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.nth): it's linear!
 
 ## Advanced level
 
