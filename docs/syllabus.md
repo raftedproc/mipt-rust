@@ -57,10 +57,12 @@ This document is the course syllabus. It contains the grading and lecture course
 
 3. Traits. Functional programming features. Iterators.
     - Traits. Return type polymorphism. Auto traits. `where` keyword. Extension traits.
-    - Basic library traits and their methods. `Default`, `Clone`, `Copy`. Why aren't they derived by default? `Ord`, `PartialOrd`. `Eq`, `PartialEq`. `Hash`, `Hasher`. `Drop`, `ManuallyDrop`, and RAII. Relying on drop order. `Deref`, `DerefMut`, `Borrow`. `Index` and `IndexMut`.
+    - Basic library traits and their methods. `Default`, `Clone`, `Copy`. Why aren't they derived by default?
+    - `Ord`, `PartialOrd`. `Eq`, `PartialEq`. `Hash`, `Hasher`. `Drop`, `ManuallyDrop`, and RAII. Relying on drop order.
     - Module `std::ops`. Traits `Add`, `Sub`, `Mul`, `Div`, `Rem`, `BitAnd`, `BitOr`, `BitXor`, `Shl`, `Shr` and their `-Assign` variants. `Not`, `Neg`.
+    - Traits `Index` and `IndexMut`.
     - Traits `Debug` and `Display`. `Formatter`. The motivation of their design. Trait `ToString`.
-    - Traits `FnOnce`, `Fn`, `FnMut`. Closures. Capture clause. `move` keyword. Variable rebinding in a separate scope.
+    - `Deref`, `DerefMut`, `Borrow`.
     - Module `std::convert`. Traits `From` and `Into`, `TryFrom` and `TryInto`, `AsRef` and `AsMut`. `identity` function.
     - Compound types `array` and `tuple`: what changes when their size is big.
     - Associated types and consts.
@@ -72,6 +74,7 @@ This document is the course syllabus. It contains the grading and lecture course
     - Module `std::iter` useful functions: `from_fn`, `empty`, `once`, `repeat`, `repeat_with`.
     - Traits `FromIterator`, `ExactSizeIterator`, `DoubleEndedIterator`, `Index`, `IndexMut`.
     - `collect`, `flatten` and their implementation.
+    - Traits `FnOnce`, `Fn`, `FnMut`. Closures. Capture clause. `move` keyword. Variable rebinding in a separate scope.
 
 4. The Rust language package manager: Cargo. Error handling.
     - Cargo. Crates and modules. Compilation unit. What's in a crate. Coherence.

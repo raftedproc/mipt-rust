@@ -26,11 +26,11 @@ pub fn copy_files(
         }
         let mut dst_file = BufWriter::new(
             OpenOptions::new()
-                .create_new(create_new)
+                .create_new(!dest.exists())
                 .write(true)
                 .truncate(true)
                 .open(&dest)
-                .context("cannot open destination file")?,
+                .with_context(|| format!("cannot open destination file {:?}", dest))?,
         );
         let mut buf = Vec::new();
         src_file

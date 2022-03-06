@@ -51,7 +51,7 @@ fn parse_token(line: &str) -> Result<Option<Token>> {
     };
 
     let mut properties = vec![];
-    for prop in properties_str.split_inclusive(",") {
+    for prop in properties_str.split_inclusive(',') {
         match prop {
             "no_hint" => properties.push(TokenProperty::NoHint),
             "unimplemented" => properties.push(TokenProperty::Unimplemented),

@@ -69,12 +69,7 @@ impl Problem {
         let branch_name = self.branch_name();
         let solutions_problem_path = solutions_repo.join(relative_path);
         let repository_problem_path = self.path.clone();
-        if !launch_git!(
-            solutions_repo,
-            "git checkout failed",
-            "checkout",
-            &branch_name
-        ) {
+        if !launch_git!(solutions_repo, "checkout", &branch_name) {
             bail!("failed to checkout branch in solutions repository")
         }
         copy_files(
@@ -91,18 +86,9 @@ impl Problem {
         let branch_name = self.branch_name();
         let solutions_problem_path = solutions_repo.join(relative_path);
         let repository_problem_path = self.path.clone();
-        if !launch_git!(
-            solutions_repo,
-            "git checkout failed",
-            "checkout",
-            &branch_name
-        ) && !launch_git!(
-            solutions_repo,
-            "git checkout -b command failed",
-            "checkout",
-            "-b",
-            &branch_name
-        ) {
+        if !launch_git!(solutions_repo, "checkout", &branch_name)
+            && !launch_git!(solutions_repo, "checkout", "-b", &branch_name)
+        {
             bail!("failed to both checkout and create branch in solutions repository")
         }
         copy_files(

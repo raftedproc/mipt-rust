@@ -2,8 +2,8 @@
 /target
 /Cargo.lock
 
-# Student repository
-/solutions
+# Sandbox
+/tools/sandbox
 
 # VS Code settings
 **/.vscode
@@ -11,7 +11,7 @@
 # MacOS useless DS_Store
 **/.DS_Store
 
-# Lectures Latex
+# Lectures
 /lectures/**/_minted-slides
 /lectures/**/slides.aux
 /lectures/**/slides.dvi

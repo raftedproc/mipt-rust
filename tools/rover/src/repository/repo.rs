@@ -55,7 +55,7 @@ impl Repository {
     }
 
     pub fn solutions_repo(&self) -> Result<PathBuf> {
-        let path = self.path.join(SOLUTIONS_REPO_FOLDER);
+        let path = self.path.parent().unwrap().join(SOLUTIONS_REPO_FOLDER);
         if path.is_dir() {
             Ok(path)
         } else {

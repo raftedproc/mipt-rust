@@ -1,5 +1,5 @@
 use crate::{launch_git, repository::repo::Repository};
-use anyhow::Result;
+use anyhow::{bail, Result};
 use std::{
     path::{Path, PathBuf},
     process,
@@ -17,14 +17,22 @@ pub fn submit_problem(
         None => repository.solutions_repo()?,
     };
     problem.move_solution_files_to(&solutions_repo)?;
-    launch_git!(&solutions_repo, "git add failed", "add", ".");
-    launch_git!(
-        &solutions_repo,
-        "git commit failed",
-        "commit",
-        "-m",
-        message
-    );
-    launch_git!(&solutions_repo, "git push failed", "push");
+    if !launch_git!(&solutions_repo, "add", ".") {
+        bail!("git add failed");
+    }
+    if !launch_git!(&solutions_repo, "commit", "-m", message) {
+        bail!("git commit failed")
+    }
+    if !launch_git!(&solutions_repo, "push")
+        && !launch_git!(
+            &solutions_repo,
+            "push",
+            "--set-upstream",
+            "origin",
+            problem.branch_name()
+        )
+    {
+        bail!("git push failed")
+    }
     Ok(())
 }
