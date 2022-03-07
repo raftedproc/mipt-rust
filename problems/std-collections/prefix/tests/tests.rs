@@ -1,6 +1,6 @@
+use ntest::timeout;
 use prefix::longest_common_prefix;
 use rand::{distributions::Alphanumeric, Rng};
-use ntest::timeout;
 
 #[test]
 fn empty_vec() {
@@ -19,7 +19,10 @@ fn two_empty_strings() {
 
 #[test]
 fn it_works1() {
-    assert_eq!(longest_common_prefix(vec!["flower", "flow", "flight"]), "fl");
+    assert_eq!(
+        longest_common_prefix(vec!["flower", "flow", "flight"]),
+        "fl"
+    );
 }
 
 #[test]
@@ -51,7 +54,10 @@ fn simple_stress() {
 
 #[test]
 fn unicode1() {
-    assert_eq!(longest_common_prefix(vec![" ( ͡❛ ͜ʖ ͡❛) ✊", " ( ͡❛ ͜ʖ ͡❛)✊"]), " ( ͡❛ ͜ʖ ͡❛)");
+    assert_eq!(
+        longest_common_prefix(vec![" ( ͡❛ ͜ʖ ͡❛) ✊", " ( ͡❛ ͜ʖ ͡❛)✊"]),
+        " ( ͡❛ ͜ʖ ͡❛)"
+    );
 }
 
 #[test]
@@ -60,5 +66,8 @@ fn unicode2() {
     // Ì = U+00CD
     // Ý = U+00DD
     // I.e. they aren't equal somewhere in between
-    assert_eq!(longest_common_prefix(vec!["hi!✊ Ìha", "hi!✊ Ýha"]), "hi!✊ ");
+    assert_eq!(
+        longest_common_prefix(vec!["hi!✊ Ìha", "hi!✊ Ýha"]),
+        "hi!✊ "
+    );
 }

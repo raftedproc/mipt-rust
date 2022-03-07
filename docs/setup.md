@@ -10,7 +10,7 @@ Course homeworks are guaranteed to compile and work in Linux and macOS. Please n
 
 ### Step 1 - Installing Rust and C linker
 
-Install `rustup` either [by the official command line](https://www.rust-lang.org/tools/install) or using your package manager such as `apt`, `pacman` or `brew`.
+Install `rustup` either [using the official guide](https://www.rust-lang.org/tools/install) or using your package manager such as `apt`, `pacman` or `brew`.
 
 On Linux, you probably have the C language linker, but make sure you already have it by installing `build-essential` using your package manager.
 
@@ -87,4 +87,22 @@ Read the document about [solving and submitting problems](solving.md). Solve the
     git clone YOUR_SOLUTIONS_REPOSITORY_IN_MANYTASK solutions
     ```
 
-3. Try to submit your solution to CI by running `rover submit` in the folder of the problem `add`. Feel free to answer any questions if something is wrong.
+3. The directory structure should be:
+
+    ```shell
+    $ tree -L 1
+    .
+    ├── mipt-rust
+    ├── solutions
+    ```
+
+4. Copy the workflow file from course repository and push it to the remote:
+
+    ```shell
+    cp mipt-rust/.grader-ci.yml solutions/.gitlab-ci.yml
+    git add .
+    git commit -m "Add .gitlab-ci.yml"
+    git push
+    ```
+
+5. Try to submit your solution to CI by running `rover submit` in the folder of the problem `add`. Feel free to answer any questions if something is wrong.

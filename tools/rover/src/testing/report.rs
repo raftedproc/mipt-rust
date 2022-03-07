@@ -32,8 +32,12 @@ impl ReportType {
                 if env::var("SKIP_REPORT").is_ok() {
                     return Ok(());
                 }
-                let task_name =
-                    env::var("CI_COMMIT_REF_NAME").context("no CI_COMMIT_REF_NAME variable")?;
+                let task_name = env::var("CI_COMMIT_REF_NAME")
+                    .context("no CI_COMMIT_REF_NAME variable")?
+                    .split('/')
+                    .nth(1)
+                    .context("CI_COMMIT_REF_NAME does not contain '/' symbol")?
+                    .to_owned();
                 let user_id = env::var("GITLAB_USER_ID").context("no GITLAB_USER_ID variable")?;
                 let tester_token = env::var("TESTER_TOKEN").context("no TESTER_TOKEN variable")?;
                 let client = Client::new();
