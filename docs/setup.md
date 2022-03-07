@@ -38,6 +38,13 @@ _IDE such as CLion or editors with plugins such ad Vim will work perfectly becau
 
 ### Step 3 - Cloning repository
 
+It's not necessary, but may be convenient to create a workspace folder first:
+
+```shell
+mkdir workspace
+cd workspace
+```
+
 Clone the repository:
 
 ```shell
@@ -47,7 +54,7 @@ cd mipt-rust
 
 ### Step 4 - Rover tool
 
-We have a course assistant named `rover`. It will automatize the part of your solving routine. Go to directory with it, build and install:
+We have a course assistant named `rover`. It will automatize the part of your solving routine. Go to build and install it with the command:
 
 ```shell
 cargo install --path tools/rover
@@ -74,22 +81,10 @@ Read the document about [solving and submitting problems](solving.md). Solve the
 ### Step 6 - Student CI
 
 1. Register in [testing system](https://mipt-rust.manytask.org). You can find the secret code in the course channel.
-2. Generate an SSH key if you don't have one:
+2. Clone your repository **near the course repository** in the folder named solutions:
 
     ```shell
-    ssh-keygen -N "" -f ~/.ssh/id_rsa
+    git clone YOUR_SOLUTIONS_REPOSITORY_IN_MANYTASK solutions
     ```
 
-3. Copy `id_rsa.pub` (`cat ~/.ssh/id_rsa.pub`) to [`gitlab.manytask.org/profile/keys`](https://gitlab.manytask.org/profile/keys).
-4. Check if the SSH key is working by running the command `ssh git@gitlab.manytask.org`:
-
-    ```shell
-    $ ssh git@gitlab.manytask.org
-    PTY allocation request failed on channel 0
-    Welcome to GitLab, Alexander Stanovoy!
-    Connection to gitlab.manytask.org closed.
-    ```
-
-5. Clone your repository
-
-TODO: Just a bit later :)
+3. Try to submit your solution to CI by running `rover submit` in the folder of the problem `add`. Feel free to answer any questions if something is wrong.

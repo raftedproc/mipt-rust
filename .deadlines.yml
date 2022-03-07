@@ -1,28 +1,32 @@
 - group:    Tutorial
   start:    01-02-2022 00:00
-  deadline: 22-02-2022 23:59
+  deadline: 11-03-2022 23:59
   tasks:
-    - task: tutorial/add
+    - task: add
       score: 0
 - group:    Intro
   start:    01-02-2022 00:00
-  deadline: 22-02-2022 23:59
+  deadline: 11-02-2022 23:59
   tasks:
-    - task: intro/combinations
+    - task: combinations
       score: 100
-    - task: intro/conway
+    - task: conway
       score: 100
-    - task: intro/min-queue
+    - task: min-queue
       score: 100
 - group:    Library Collections
-  start:    01-02-2022 00:00
+  start:    12-02-2022 00:00
   deadline: 15-03-2022 23:59
   tasks:
-    - task: std-collections/comm
+    - task: comm
       score: 100
-    - task: std-collections/prefix
+    - task: prefix
       score: 200
-    - task: std-collections/mpsc
-      score: 200
-    - task: std-collections/lru-cache
+    - task: lru-cache
       score: 300
+- group:    Traits
+  start:    01-02-2022 00:00
+  deadline: 29-03-2022 23:59
+  tasks:
+    - task: mpsc
+      score: 200

@@ -6,9 +6,9 @@ members = [
     "problems/intro/conway",
     "problems/intro/min-queue",
     "problems/std-collections/comm",
-    "problems/std-collections/mpsc",
     "problems/std-collections/prefix",
     "problems/std-collections/lru-cache",
+    "problems/traits/mpsc",
 
     # Tools
     "tools/rover",
