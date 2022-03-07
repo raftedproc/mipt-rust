@@ -100,6 +100,7 @@ Read the document about [solving and submitting problems](solving.md). Solve the
 
     ```shell
     cp mipt-rust/.grader-ci.yml solutions/.gitlab-ci.yml
+    cd solutions
     git add .
     git commit -m "Add .gitlab-ci.yml"
     git push
