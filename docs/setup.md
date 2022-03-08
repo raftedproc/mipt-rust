@@ -60,6 +60,8 @@ We have a course assistant named `rover`. It will automatize the part of your so
 cargo install --path tools/rover
 ```
 
+Probably, you'll need `libssl-dev` installed to build `rover`. Install it if needed.
+
 From this moment, you can call it from any place you want! Just try to type:
 
 ```shell

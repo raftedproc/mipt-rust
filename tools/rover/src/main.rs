@@ -64,6 +64,14 @@ fn main() -> Result<()> {
                         .takes_value(true)
                 )
                 .arg(
+                    Arg::new("checkout-branch")
+                        .long("checkout-branch")
+                        .help("Do we need to checkout branch with problem or not")
+                        .required(false)
+                        .requires("move-files")
+                        .takes_value(false)
+                )
+                .arg(
                     Arg::new("report-to")
                         .long("report-to")
                         .help("Set system that will accept the results of testing")
@@ -107,10 +115,14 @@ fn main() -> Result<()> {
             let problem = repository.problem_from_path(&path)?;
             let report = ReportType::from_name(test_matches.value_of("report-to").unwrap())?;
             if let Some(solutions_repo) = test_matches.value_of("move-files") {
+                let checkout_branch = test_matches.value_of("checkout-branch").is_some();
                 let solutions_repo: PathBuf = solutions_repo.into();
-                problem.move_solution_files_from(&solutions_repo)?;
+                problem.move_solution_files_from(&solutions_repo, checkout_branch)?;
             }
-            report.push_report(!test_problem(problem)?)
+            // TODO: Make testing errors more clear
+            let testing_result = test_problem(problem);
+            let report_push = report.push_report(testing_result.is_err());
+            testing_result.and(report_push)
         }
         Some(("compose", compose_matches)) => {
             let input: PathBuf = compose_matches.value_of("input").unwrap().into();

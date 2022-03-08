@@ -128,8 +128,8 @@ fn unimpl() -> i32 {
 
 ### Commands
 
-- `rover test --path PATH --move-files REPO --report-to CI`
-  - If `REPO` is set, copy the files from the solutions repository with root path `REPO` from branch `GROUP/TITLE` that matches the problem.
+- `rover test --path PATH --move-files REPO --checkout-branch --report-to CI`
+  - If `REPO` is set, checkout branch `GROUP/TITLE` if option `--checkout-branch` present, and then copy the files from the solutions repository.
   - `PATH` is the root of the problem.
   - `CI` is the string that represents the CI name. Supported ones are:
     - `no-report` (default) - just don't report anything.

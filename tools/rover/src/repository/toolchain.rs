@@ -25,7 +25,11 @@ macro_rules! launch {
         while let Some(arg) = iter.next() {
             cmd.arg(arg);
         }
-        Ok(cmd.status().context("command failed")?.success())
+        if cmd.status().context("command failed")?.success() {
+            Ok(())
+        } else {
+            bail!("command failed")
+        }
     }};
 }
 
@@ -54,7 +58,7 @@ impl Toolchain {
         })
     }
 
-    pub fn run_command(&self, command: &Command, context: &CommandContext) -> Result<bool> {
+    pub fn run_command(&self, command: &Command, context: &CommandContext) -> Result<()> {
         match command {
             Command::ForbidUnsafe => {
                 for file in context.get_user_files() {
@@ -64,11 +68,11 @@ impl Toolchain {
                         .transpose()?
                     {
                         if line != FORBID_UNSAFE_LINE {
-                            return Ok(false);
+                            bail!(format!("file {file:?} doesn't contain line '{FORBID_UNSAFE_LINE}'"))
                         }
                     }
                 }
-                Ok(true)
+                Ok(())
             }
             Command::CargoFmt => {
                 launch!(self, command, context)

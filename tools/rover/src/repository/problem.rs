@@ -49,27 +49,29 @@ impl Problem {
         Config::from_yml(&self.path.join(DEFAULT_YML_NAME))
     }
 
-    pub fn launch_all_steps(&self) -> Result<bool> {
+    pub fn launch_all_steps(&self) -> Result<()> {
         let config = self.config()?;
         let toolchain = config.get_toolchain();
         let context = config.get_command_context();
         for step in config.get_steps() {
             for command in step.commands() {
-                if !toolchain.run_command(command, &context)? {
-                    return Ok(false);
-                }
+                toolchain.run_command(command, &context)?;
             }
         }
-        Ok(true)
+        Ok(())
     }
 
-    pub fn move_solution_files_from(&self, solutions_repo: &Path) -> Result<()> {
+    pub fn move_solution_files_from(
+        &self,
+        solutions_repo: &Path,
+        checkout_branch: bool,
+    ) -> Result<()> {
         let config = self.config()?;
         let relative_path = self.relative_path();
         let branch_name = self.branch_name();
         let solutions_problem_path = solutions_repo.join(relative_path);
         let repository_problem_path = self.path.clone();
-        if !launch_git!(solutions_repo, "checkout", &branch_name) {
+        if checkout_branch && !launch_git!(solutions_repo, "checkout", &branch_name) {
             bail!("failed to checkout branch in solutions repository")
         }
         copy_files(
