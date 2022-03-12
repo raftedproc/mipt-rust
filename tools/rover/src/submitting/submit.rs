@@ -21,7 +21,7 @@ pub fn submit_problem(
         bail!("git add failed");
     }
     if !launch_git!(&solutions_repo, "commit", "-m", message) {
-        bail!("git commit failed")
+        bail!("git commit failed: either no changes since the last commit or git failed")
     }
     if !launch_git!(&solutions_repo, "push")
         && !launch_git!(

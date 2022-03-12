@@ -89,7 +89,7 @@ impl Problem {
         let solutions_problem_path = solutions_repo.join(relative_path);
         let repository_problem_path = self.path.clone();
         if !launch_git!(solutions_repo, "checkout", &branch_name)
-            && !launch_git!(solutions_repo, "checkout", "-b", &branch_name)
+            && !launch_git!(solutions_repo, "checkout", "-b", &branch_name, "master")
         {
             bail!("failed to both checkout and create branch in solutions repository")
         }

@@ -6,7 +6,7 @@ use std::{error::Error, iter::repeat};
 struct Int(usize);
 
 #[test]
-fn test_simple() {
+fn simple() {
     let (sender, mut receiver) = channel::<Int>();
     for k in 0..10 {
         for i in k..k + 10 {
@@ -19,7 +19,7 @@ fn test_simple() {
 }
 
 #[test]
-fn test_sender_clone() {
+fn sender_clone() {
     let (sender, mut receiver) = channel::<Int>();
     let senders = repeat(sender).take(10).collect::<Vec<_>>();
     for k in 0..10 {
@@ -33,7 +33,7 @@ fn test_sender_clone() {
 }
 
 #[test]
-fn test_close() {
+fn close() {
     let (sender, mut receiver) = channel::<Int>();
     let senders = repeat(sender).take(10).collect::<Vec<_>>();
     for i in 0..10 {
@@ -61,7 +61,7 @@ fn test_close() {
 }
 
 #[test]
-fn test_senders_dropped() {
+fn senders_dropped() {
     let (sender, mut receiver) = channel::<Int>();
     let senders = repeat(sender).take(10).collect::<Vec<_>>();
     for i in 0..10 {
@@ -86,7 +86,7 @@ fn test_senders_dropped() {
 }
 
 #[test]
-fn test_receiver_dropped() {
+fn receiver_dropped() {
     let (sender, receiver) = channel::<Int>();
     let senders = repeat(sender).take(10).collect::<Vec<_>>();
     for i in 0..10 {
@@ -103,7 +103,7 @@ fn test_receiver_dropped() {
 }
 
 #[test]
-fn test_same_channel() {
+fn same_channel() {
     let (first, _) = channel::<Int>();
     assert!(first.same_channel(&first.clone()));
 

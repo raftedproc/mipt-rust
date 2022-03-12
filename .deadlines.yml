@@ -25,8 +25,14 @@
     - task: lru-cache
       score: 300
 - group:    Traits
-  start:    01-02-2022 00:00
-  deadline: 31-03-2022 23:59
+  start:    12-03-2022 00:00
+  deadline: 02-04-2022 23:59
   tasks:
+    - task: trust
+      score: 100
     - task: mpsc
       score: 200
+    - task: flatmap
+      score: 200
+    - task: itertools
+      score: 300

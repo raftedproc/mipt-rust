@@ -15,10 +15,10 @@ Implement the command line utility called `comm`. It takes two files as an input
 - To read file line by line, use [`std::fs::File`](https://doc.rust-lang.org/std/fs/struct.File.html) and [`std::io::BufReader`](https://doc.rust-lang.org/stable/std/io/struct.BufReader.html):
 
     ```rust
-    use std::io::{File, BufRead};
+    use std::{fs::File, io::BufRead};
 
-    let file = std::fs::File::open(path).unwrap();
-    let reader = std::io::BufReader::new(file);
+    let file = File::open(path).unwrap();
+    let reader = BufReader::new(file);
     for line in reader.lines() {
         // ...
     }

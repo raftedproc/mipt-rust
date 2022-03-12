@@ -4,7 +4,7 @@ This document is to help you to set up your course workspace.
 
 ## Operating System
 
-Course homeworks are guaranteed to compile and work in Linux and macOS. Please note that any other operating system **is not supported** through it may work using Docker, WLS, or other virtualization tools.
+Course homeworks are guaranteed to compile and work in Linux and macOS. Please note that any other operating system **is not supported** through it may work natively, using Docker, WLS, or other virtualization tools.
 
 ## Setup process
 
@@ -108,4 +108,4 @@ Read the document about [solving and submitting problems](solving.md). Solve the
     git push
     ```
 
-5. Try to submit your solution to CI by running `rover submit` in the folder of the problem `add`. Feel free to answer any questions if something is wrong.
+5. Try to submit your solution to CI by running `rover submit` in the folder of the problem `add`. Feel free to ask any questions if something is wrong.

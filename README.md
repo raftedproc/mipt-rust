@@ -2,7 +2,7 @@
 
 Welcome to the Rust Programming Language course!
 
-_Moscow Institute of Technology, spring 2022. Lecturer and seminarian [Alexander Stanovoy](https://gitlab.com/alex.stanovoy)._
+_Moscow Institute of Technology, spring 2022. Lecturer [Alexander Stanovoy](https://gitlab.com/alex.stanovoy)._
 
 ## Prerequisites
 
