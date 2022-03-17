@@ -6,6 +6,7 @@ pub enum Command {
     CargoFmt,
     CargoClippy,
     CargoTest,
+    PythonTest,
 }
 
 impl Command {
@@ -15,6 +16,7 @@ impl Command {
             "cargo-fmt" => Self::CargoFmt,
             "cargo-clippy" => Self::CargoClippy,
             "cargo-test" => Self::CargoTest,
+            "python-test" => Self::PythonTest,
             name => bail!("command \"{name}\" is not supported"),
         })
     }
@@ -25,6 +27,7 @@ impl Command {
             Self::CargoFmt => "cargo fmt --check".to_string(),
             Self::CargoClippy => "cargo clippy --release -- -D warnings".to_string(),
             Self::CargoTest => "cargo test --release".to_string(),
+            Self::PythonTest => "python3 test.py".to_string(),
         })
     }
 }

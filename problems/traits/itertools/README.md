@@ -7,7 +7,7 @@ In this problem, you'll write trait `ExtendedIterator` to extend the default `It
 Do the following:
 
 - Make `ExtendedIterator` to be implemented automatically for any iterator.
-- `ExtendedIterator::lazy_cycle()` - creates an infinite iterator that repeats infinitely the sequence of elements.
+- `ExtendedIterator::lazy_cycle()` - creates an iterator that repeats infinitely the input sequence of elements.
   - Underlying iterator should be exhausted lazily, not instantly after the call to the `lazy_cycle`, therefore `Item` must be `Clone`.
   - Remember that in Rust `None` does not necessarily mean iterator is exhausted, but in the case of `lazy_cycle` we should stop calling to the `.next()`.
 - `ExtendedIterator::extract(index)` - gets n-th element (zero-indexed) from the iterator and returns the pair of n-th element and the new iterator that returns the same elements but without n-th one.

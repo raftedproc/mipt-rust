@@ -12,6 +12,8 @@ members = [
     "problems/traits/mpsc",
     "problems/traits/flatmap",
     "problems/traits/itertools",
+    "problems/modules/trie",
+    "problems/modules/ripgzip",
 
     # Tools
     "tools/rover",

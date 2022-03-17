@@ -68,19 +68,20 @@ impl Toolchain {
                         .transpose()?
                     {
                         if line != FORBID_UNSAFE_LINE {
-                            bail!(format!("file {file:?} doesn't contain line '{FORBID_UNSAFE_LINE}'"))
+                            bail!(format!(
+                                "file {file:?} doesn't contain line '{FORBID_UNSAFE_LINE}'"
+                            ))
                         }
+                    } else {
+                        // TODO: ForbidUnsafe shouldn't check whether file is empty
+                        bail!(format!(
+                            "file {file:?} is empty"
+                        ))
                     }
                 }
                 Ok(())
             }
-            Command::CargoFmt => {
-                launch!(self, command, context)
-            }
-            Command::CargoClippy => {
-                launch!(self, command, context)
-            }
-            Command::CargoTest => {
+            Command::CargoFmt | Command::CargoClippy | Command::CargoTest | Command::PythonTest => {
                 launch!(self, command, context)
             }
         }

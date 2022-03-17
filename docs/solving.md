@@ -13,6 +13,7 @@ This document describes how to work with course problems.
 
   ```shell
   git pull
+  cargo install --path tools/rover
   ```
 
 - Read the problem statement.

@@ -2002,7 +2002,7 @@ Let's use \texttt{Option} type to create a self referential \texttt{Cell} (in th
             println!("before: {}", *data);
             
             // Сlear out the cell we point to...
-            self.pointer.set(None); 
+            self.pointer.set(None);
             
             // Print it again (should be no change!)
             println!("after: {}", *data);
@@ -2033,6 +2033,8 @@ Possible output:
 \end{minted}
 
 This means the \texttt{Cell} with \texttt{Clone} is \textbf{unsound}.
+
+More generally, this bug is called \textit{reentrancy}.
 \end{frame}
 
 % ----------------------------------------------------------------- %

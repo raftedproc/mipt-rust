@@ -17,6 +17,7 @@ This document contains additional reading links and videos. It's not necessary t
 - [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/01_getting_started/01_chapter.html) - Introduction to asynchronous programming.
 - [Futures Explained in 200 Lines of Rust](https://cfsamson.github.io/books-futures-explained/introduction.html) - Good book on futures and executors.
 - [Guide to Rustc Development](https://rustc-dev-guide.rust-lang.org) - The guide to compiler development for enthusiasts.
+- [The Embedded Rust Book](https://docs.rust-embedded.org/book/) - Programming for embedded systems in Rust.
 
 ## Articles
 
