@@ -241,11 +241,11 @@ fn stress2() {
 }
 
 #[test]
-#[timeout(5000)]
+#[timeout(7500)]
 fn performance1() {
     let mut trie = Trie::<String, i32>::new();
     let mut rng = rand::thread_rng();
-    for _ in 0..10000 {
+    for _ in 0..6000 {
         let key: String = rand::thread_rng()
             .sample_iter(&Alphanumeric)
             .take(rng.gen_range(0usize..5000))
