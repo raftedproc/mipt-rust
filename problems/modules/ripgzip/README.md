@@ -29,7 +29,7 @@ After implementing, also run `./test.py` or `rover test` since this problem has 
 
 ## I don't like how everything is designed
 
-The only thingы you cannot change are:
+The only things you cannot change are:
 
 - `decompress` function in the file `lib.rs`: is must accept the input and write to the output, since it's tested.
 - `main.rs` file is already implemented for you, but if you want to change it just make sure the binary accepts the file by `stdin` and outputs the compressed result to `stdout`.

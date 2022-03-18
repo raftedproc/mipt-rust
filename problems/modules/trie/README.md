@@ -24,4 +24,3 @@ Design traits `FromKeyIter` and `TrieKey`.
 
 - `FromKeyIter` means this iterator could be collected to the instance of the type it was created from.
 - `TrieKey` means that this type could be turned into an iterator for trie and then recreated from this iterator.
-

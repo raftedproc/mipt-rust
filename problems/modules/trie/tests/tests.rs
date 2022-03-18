@@ -12,10 +12,10 @@ impl Iterator for NumberIter {
     type Item = u8;
 
     fn next(&mut self) -> Option<Self::Item> {
-        if self.1 == 32 {
+        if self.1 == 32 || (self.0 >> self.1) == 0 {
             None
         } else {
-            let ret = ((self.0 << self.1) as u8) & 0xFF;
+            let ret = ((self.0 >> self.1) as u8) & 0xFF;
             self.1 += 8;
             Some(ret)
         }
@@ -205,12 +205,19 @@ fn it_works2() {
 #[test]
 fn it_works3() {
     let mut trie = Trie::<Number, i32>::new();
-    trie.insert(&Number(33022), 1); // 254 128 0 0
-    trie.insert(&Number(855163), 2); // 123 12 13 0
-    trie.insert(&Number(795390), 4); // 254 34 12 0
-    assert!(trie.contains(&Number(254))); // 254 0 0 0
-    assert!(trie.contains(&Number(123))); // 123 0 0 0
-    assert!(trie.contains(&Number(3326))); // 254 12 0 0
+    trie.insert(&Number(33022), 1); // 254 128
+    trie.insert(&Number(855163), 2); // 123 12 13
+    trie.insert(&Number(795390), 4); // 254 34 12
+    assert!(trie.starts_with(&Number(254))); // 254
+    assert!(trie.contains(&Number(33022))); // 254 128
+    assert!(trie.contains(&Number(855163))); // 123 12 13
+    assert!(trie.contains(&Number(795390))); // 254 34 12
+    assert!(trie.starts_with(&Number(254))); // 254
+    assert!(!trie.contains(&Number(254))); // 254
+    assert!(trie.starts_with(&Number(123))); // 123
+    assert!(!trie.contains(&Number(123))); // 123
+    assert!(!trie.starts_with(&Number(3326))); // 254 12
+    assert!(!trie.contains(&Number(3326))); // 254 12
 }
 
 #[test]
@@ -242,7 +249,7 @@ fn stress2() {
 
 #[test]
 #[timeout(7500)]
-fn performance1() {
+fn performance() {
     let mut trie = Trie::<String, i32>::new();
     let mut rng = rand::thread_rng();
     for _ in 0..6000 {
