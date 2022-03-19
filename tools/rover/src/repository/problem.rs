@@ -94,7 +94,7 @@ impl Problem {
                 "checkout",
                 "-b",
                 &branch_name,
-                "origin/master"
+                "origin/main"
             )
         {
             bail!("failed to both checkout and create branch in solutions repository")
