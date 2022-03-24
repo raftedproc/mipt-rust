@@ -22,6 +22,11 @@ pub fn cargo_root(output: &Path, config: &Config) -> Result<()> {
             path.to_str().unwrap().to_string()
         })
         .collect();
+    let add_to_toml: Vec<_> = config
+        .get_add_to_toml()
+        .iter()
+        .map(|path| path.to_str().unwrap().to_string())
+        .collect();
     let content = format!(
         r#"[workspace]
 members = [
@@ -30,10 +35,14 @@ members = [
 
     # Tools
     "{}",
+
+    # Additional
+    "{}",
 ]
 "#,
         problems.join("\",\n    \""),
-        tools.join("\",\n    \"")
+        tools.join("\",\n    \""),
+        add_to_toml.join("\",\n    \"")
     );
     fs::write(output.join("Cargo.toml"), content).context("failed to write Cargo.toml")
 }

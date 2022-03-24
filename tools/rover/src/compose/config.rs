@@ -12,6 +12,7 @@ pub struct Config {
     tools: Vec<PathBuf>,
     copy: Vec<PathBuf>,
     skip_entries: Vec<PathBuf>,
+    add_to_toml: Vec<PathBuf>,
     do_not_delete: Vec<PathBuf>,
 }
 
@@ -37,6 +38,10 @@ impl Config {
 
     pub fn get_copy(&self) -> &[PathBuf] {
         self.copy.as_slice()
+    }
+
+    pub fn get_add_to_toml(&self) -> &[PathBuf] {
+        self.add_to_toml.as_slice()
     }
 
     pub fn get_skipped(&self) -> &[PathBuf] {

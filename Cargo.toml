@@ -17,4 +17,7 @@ members = [
 
     # Tools
     "tools/rover",
+
+    # Additional
+    "lectures/lecture-04/code/example",
 ]

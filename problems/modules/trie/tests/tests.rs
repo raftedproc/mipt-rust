@@ -55,9 +55,14 @@ impl TrieLike {
     fn insert(&mut self, key: String, value: i32) -> Option<i32> {
         let old_value = match self.data.entry(key.clone()) {
             Occupied(mut entry) => entry.get_mut().1.replace(value),
-            _ => None,
+            Vacant(entry) => {
+                entry.insert((0, Some(value)));
+                None
+            }
         };
-        self.data.entry(key.clone()).or_insert((0, Some(value)));
+        if old_value.is_some() {
+            return old_value;
+        }
         for count in 0..(key.len() + 1) {
             match self.data.entry(key.chars().take(count).collect()) {
                 Occupied(mut entry) => {
@@ -223,14 +228,30 @@ fn it_works3() {
 #[test]
 fn it_works4() {
     let mut trie = Trie::<String, i32>::new();
-    trie.insert(&"saF".to_owned(), 1);
-    trie.insert(&"aFS".to_owned(), 2);
-    trie.insert(&"aF".to_owned(), 3);
+    trie.insert("saF", 1);
+    assert_eq!(trie.len(), 1);
+    trie.insert("aFS", 2);
+    assert_eq!(trie.len(), 2);
+    trie.insert("aFS", 4);
+    assert_eq!(trie.len(), 2);
+    assert_eq!(trie.get("aFS"), Some(&4));
+    trie.insert("aF", 3);
+    assert_eq!(trie.len(), 3);
     trie.remove("aFS");
     assert!(!trie.starts_with("aFS"));
     assert!(trie.starts_with("aF"));
     trie.remove("aF");
     assert!(!trie.starts_with("aF"));
+}
+
+#[test]
+fn it_works5() {
+    let mut trie = Trie::<String, i32>::new();
+    assert_eq!(trie.len(), 0);
+    trie.insert(&"ab".to_owned(), 5);
+    assert_eq!(trie.len(), 1);
+    trie.insert(&"ab".to_owned(), 4);
+    assert_eq!(trie.len(), 1);
 }
 
 #[test]

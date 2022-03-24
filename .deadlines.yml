@@ -6,7 +6,7 @@
       score: 0
 - group:    Intro
   start:    01-02-2022 00:00
-  deadline: 11-03-2022 23:59
+  deadline: 26-03-2022 23:59
   tasks:
     - task: combinations
       score: 100
@@ -16,7 +16,7 @@
       score: 100
 - group:    Library Collections
   start:    12-02-2022 00:00
-  deadline: 15-03-2022 23:59
+  deadline: 26-03-2022 23:59
   tasks:
     - task: comm
       score: 100

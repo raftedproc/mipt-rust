@@ -9,6 +9,7 @@ This document contains additional reading links and videos. It's not necessary t
 - [Learn Rust With Entirely Too Many Linked Lists](https://rust-unofficial.github.io/too-many-lists/) - Just writing multiple linked lists. It may help to understand the basics of ownership.
 - [The Cargo Book](https://doc.rust-lang.org/cargo/) - The Cargo package manager reference.
 - [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/intro.html) - Explains how to solve simple, widespread programming tasks.
+- [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/about.html) - Official set of recommendations on how to design and present APIs.
 - [The Little Book of Rust Macros](https://danielkeep.github.io/tlborm/book/index.html) - Starter book about Rust Macros.
 - [Rust Design Patterns](https://rust-unofficial.github.io/patterns/intro.html) - Good practices of Rust programming.
 - [The Rustonomicon](https://doc.rust-lang.org/nomicon/index.html) - The book about Unsafe Rust. In addition, it covers some advanced safe topics such as ownership.
@@ -17,6 +18,7 @@ This document contains additional reading links and videos. It's not necessary t
 - [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/01_getting_started/01_chapter.html) - Introduction to asynchronous programming.
 - [Futures Explained in 200 Lines of Rust](https://cfsamson.github.io/books-futures-explained/introduction.html) - Good book on futures and executors.
 - [Guide to Rustc Development](https://rustc-dev-guide.rust-lang.org) - The guide to compiler development for enthusiasts.
+- [What is rustc?](https://doc.rust-lang.org/rustc/what-is-rustc.html) - Describes some advanced usages of the `rustc` compiler.
 - [The Embedded Rust Book](https://docs.rust-embedded.org/book/) - Programming for embedded systems in Rust.
 
 ## Articles
@@ -52,6 +54,7 @@ This document contains additional reading links and videos. It's not necessary t
 ## Books
 
 - ["Rust for Rustaceans - Idiomatic Programming for Experienced Developers" by Jon Gjengset](https://nostarch.com/rust-rustaceans) - Perfect book that covers **a lot** of details about the language in-depth.
+- [Zero To Production In Rust](https://www.zero2prod.com/index.html?country=Netherlands&discount_code=VAT20)
 
 ## Blogs
 

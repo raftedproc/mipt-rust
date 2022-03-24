@@ -74,9 +74,7 @@ impl Toolchain {
                         }
                     } else {
                         // TODO: ForbidUnsafe shouldn't check whether file is empty
-                        bail!(format!(
-                            "file {file:?} is empty"
-                        ))
+                        bail!(format!("file {file:?} is empty"))
                     }
                 }
                 Ok(())
