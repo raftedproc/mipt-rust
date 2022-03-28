@@ -68,7 +68,7 @@ fn remove() {
 }
 
 #[test]
-#[timeout(1000)]
+#[timeout(1500)]
 fn performance1() {
     let count = 10000000;
     let mut rng = rand::thread_rng();
@@ -100,7 +100,7 @@ fn performance1() {
 }
 
 #[test]
-#[timeout(2000)]
+#[timeout(2500)]
 fn performance2() {
     let count = 8000000;
     let mut rng = rand::thread_rng();
