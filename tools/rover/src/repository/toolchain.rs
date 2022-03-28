@@ -7,6 +7,16 @@ use std::{
 };
 
 const FORBID_UNSAFE_LINE: &str = "#![forbid(unsafe_code)]";
+const FORBID_COLLECTIONS_PATTERNS: [&str; 8] = [
+    "BTreeMap",
+    "BTreeSet",
+    "HashMap",
+    "HashSet",
+    "Vec",
+    "VecDeque",
+    "LinkedList",
+    "BinaryHeap",
+];
 
 macro_rules! launch {
     ($toolchain: expr, $command: expr, $context: expr) => {{
@@ -69,12 +79,27 @@ impl Toolchain {
                     {
                         if line != FORBID_UNSAFE_LINE {
                             bail!(format!(
-                                "file {file:?} doesn't contain line '{FORBID_UNSAFE_LINE}'"
+                                "file {file:?} does not contain line '{FORBID_UNSAFE_LINE}'"
                             ))
                         }
                     } else {
                         // TODO: ForbidUnsafe shouldn't check whether file is empty
                         bail!(format!("file {file:?} is empty"))
+                    }
+                }
+                Ok(())
+            }
+            Command::ForbidCollections => {
+                for file in context.get_user_files() {
+                    for line in BufReader::new(File::open(file)?).lines() {
+                        let line = line.context("error reading file line")?;
+                        for pattern in FORBID_COLLECTIONS_PATTERNS {
+                            if line.contains(pattern) {
+                                bail!(format!(
+                                    "file {file:?} contains line '{pattern}'"
+                                ))
+                            }
+                        }
                     }
                 }
                 Ok(())

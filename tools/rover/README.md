@@ -49,10 +49,12 @@ steps:
   - Here might be any problem subpath and even any Unix shell style pattern. All matched paths **must be files**.
 - Steps - represents the steps of testing. They may be named how you like, `rover` will launch them step-by-step.
   - Commands - part of a step:
-    - `forbid-unsafe` - check if `#![forbid(unsafe_code)]` line present in all allowed user files.
+    - `forbid-unsafe` - checks if `#![forbid(unsafe_code)]` line present in all allowed user files.
     - `cargo-fmt` - launches `cargo fmt` in the root of the problem with the current toolchain.
     - `cargo-clippy` - launches `cargo clippy` in the root of the problem with the current toolchain.
     - `cargo-test` - launches `cargo test` in the root of the problem with the current toolchain.
+    - `python-test` - launches `python3 test.py` at the root of problem directory and checks the exit code.
+    - `forbid-collections` - bans solution if there's any collection from `std::collections`.
 
 ### Compose config
 

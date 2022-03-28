@@ -26,7 +26,7 @@
       score: 300
 - group:    Traits
   start:    12-03-2022 00:00
-  deadline: 02-04-2022 23:59
+  deadline: 05-04-2022 23:59
   tasks:
     - task: trust
       score: 100
@@ -44,3 +44,13 @@
       score: 400
     - task: ripgzip
       score: 100
+- group:    Borrowing
+  start:    28-03-2022 00:00
+  deadline: 19-04-2022 23:59
+  tasks:
+    - task: pstack
+      score: 100
+    - task: context
+      score: 100
+    - task: bst
+      score: 300

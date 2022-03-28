@@ -7,6 +7,7 @@ pub enum Command {
     CargoClippy,
     CargoTest,
     PythonTest,
+    ForbidCollections,
 }
 
 impl Command {
@@ -17,6 +18,7 @@ impl Command {
             "cargo-clippy" => Self::CargoClippy,
             "cargo-test" => Self::CargoTest,
             "python-test" => Self::PythonTest,
+            "forbid-collections" => Self::ForbidCollections,
             name => bail!("command \"{name}\" is not supported"),
         })
     }
@@ -24,6 +26,7 @@ impl Command {
     pub fn get_shell_line(&self) -> Result<String> {
         Ok(match self {
             Self::ForbidUnsafe => bail!("no shell line for ForbidUnsafe"),
+            Self::ForbidCollections => bail!("no shell line for ForbidCollections"),
             Self::CargoFmt => "cargo fmt --check".to_string(),
             Self::CargoClippy => "cargo clippy --release -- -D warnings".to_string(),
             Self::CargoTest => "cargo test --release".to_string(),

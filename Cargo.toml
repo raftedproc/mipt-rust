@@ -14,6 +14,9 @@ members = [
     "problems/traits/itertools",
     "problems/modules/trie",
     "problems/modules/ripgzip",
+    "problems/borrowing/pstack",
+    "problems/borrowing/context",
+    "problems/borrowing/bst",
 
     # Tools
     "tools/rover",
