@@ -38,7 +38,7 @@
       score: 300
 - group:    Modules
   start:    12-03-2022 00:00
-  deadline: 12-04-2022 23:59
+  deadline: 14-04-2022 23:59
   tasks:
     - task: trie
       score: 400
