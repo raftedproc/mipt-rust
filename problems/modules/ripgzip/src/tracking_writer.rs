@@ -44,7 +44,7 @@ impl<T: Write> TrackingWriter<T> {
         unimplemented!()
     }
 
-    pub fn crc32(self) -> u32 {
+    pub fn crc32(mut self) -> u32 {
         // TODO: your code goes here.
         unimplemented!()
     }

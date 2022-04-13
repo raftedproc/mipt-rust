@@ -68,6 +68,21 @@ fn remove() {
 }
 
 #[test]
+fn test_nth() {
+    let mut map = AVLTreeMap::<u8, u8>::new();
+    assert_eq!(map.insert(2, 2), None);
+    assert_eq!(map.insert(1, 1), None);
+    assert_eq!(map.insert(3, 3), None);
+
+    assert_eq!(map.remove_entry(&2), Some((2, 2)));
+    assert_eq!(map.insert(2, 2), None);
+
+    assert_eq!(map.nth_key_value(0), Some((&1, &1)));
+    assert_eq!(map.nth_key_value(1), Some((&2, &2)));
+    assert_eq!(map.nth_key_value(2), Some((&3, &3)));
+}
+
+#[test]
 #[timeout(1500)]
 fn performance1() {
     let count = 10000000;
@@ -126,5 +141,30 @@ fn performance2() {
         assert_eq!(map.contains_key(&key), hash_map.contains_key(&key));
         assert_eq!(map.get(&key), hash_map.get(&key));
         assert_eq!(map.get_key_value(&key), hash_map.get_key_value(&key));
+    }
+}
+
+#[test]
+#[timeout(600)]
+fn performance3() {
+    let count = 1000000;
+    let mut rng = rand::thread_rng();
+    let mut map = AVLTreeMap::<i32, i32>::new();
+    for i in 0..count {
+        let value = rng.gen();
+        map.insert(i, value);
+    }
+    for _ in 0..count {
+        assert_eq!(map.contains_key(&count), false);
+    }
+    for i in 1000..count {
+        map.remove(&i);
+    }
+    for i in 0..count {
+        let value = rng.gen();
+        map.insert(-i, value);
+    }
+    for _ in 0..count {
+        assert_eq!(map.contains_key(&(-count)), false);
     }
 }

@@ -53,4 +53,14 @@
     - task: context
       score: 100
     - task: bst
+      score: 500
+- group:    Macros
+  start:    13-04-2022 00:00
+  deadline: 04-04-2022 23:59
+  tasks:
+    - task: fswalk
+      score: 200
+    - task: gc
       score: 300
+    - task: mini-frunk
+      score: 700

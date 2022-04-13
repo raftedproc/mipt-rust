@@ -93,7 +93,7 @@ This document is the course syllabus. It contains the grading and lecture course
     - Reason why there's no generics partial specialization: ugly SFINAE consequences.
     - Macro. `macro_rules!`. Patterns, `$crate`. Identificators. Hygiene. Macros problems. Internal macro.
     - Basics of crate serde.
-    - Attributes. `non_exhaustive`, `deprecated`. Macro `env!`, `option_env!`, `stringify!`.
+    - Attributes. `non_exhaustive`, `deprecated`. Macro `env!`, `option_env!`, `stringify!`, `include_str!`.
     - Conditional compilation and crate cfg-if.
     - Procedural macro. `derive`, `cfg`, `test`. `recursion_limit` attribute for macros.
     - Basics of crate syn.

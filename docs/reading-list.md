@@ -26,6 +26,7 @@ This document contains additional reading links and videos. It's not necessary t
 - [Improved portability and performance](https://pngquant.org/rust.html) - How [libimagequant](https://github.com/ImageOptim/libimagequant) library became more performant and **portable (!)** by rewriting C code to Rust.
 - [Rust Collections Case Study: BTreeMap](https://cglab.ca/~abeinges/blah/rust-btree-case/) - Great post about the implementation of BTree in Rust from its author.
 - [The Error Model](http://joeduffyblog.com/2016/02/07/the-error-model/) - Article with a perfect, step-by-step explanation of error handling models, including Rust's one, and is good and how it solves mistakes of other generations of error handling.
+- [Finding Closure in Rust](https://huonw.github.io/blog/2015/05/finding-closure-in-rust/) - Detailed post with "straightforward" explanation of closures design.
 - [How to organize your Rust tests](https://blog.logrocket.com/how-to-organize-your-rust-tests/) - Answers the question "How to organize your Rust tests" :)
 
 ## Writing idiomatic Rust code

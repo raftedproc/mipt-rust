@@ -4,7 +4,7 @@ In this problem, you'll implement a flat map - a data structure that stores key-
 
 ## Implementation
 
-Implement the methods of `FlatMap`. Note that functions that search by key (`get`, `remove`, `remove_entry`) must work not only with the key type but with any type `K: Borrow<Q>` и `Q: Ord + ?Sized`.
+Implement the methods of `FlatMap`. Note that functions that search by key (`get`, `remove`, `remove_entry`) must work not only with the key type but with any type `K: Borrow<Q>` and `Q: Ord + ?Sized`.
 
 **Hint**: the signatures of these functions exactly match the signatures of the functions of the same name in `HashMap`.
 
