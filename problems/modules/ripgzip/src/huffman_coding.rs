@@ -182,4 +182,72 @@ mod tests {
 
         Ok(())
     }
+
+    #[test]
+    fn from_lengths_with_zeros() -> Result<()> {
+        let lengths = [3, 4, 5, 5, 0, 0, 6, 6, 4, 0, 6, 0, 7];
+        let code = HuffmanCoding::<Value>::from_lengths(&lengths)?;
+        let mut data: &[u8] = &[
+            0b00100000, 0b00100001, 0b00010101, 0b10010101, 0b00110101, 0b00011101,
+        ];
+        let mut reader = BitReader::new(&mut data);
+
+        assert_eq!(code.read_symbol(&mut reader)?, Value(0));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(1));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(2));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(3));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(6));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(7));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(8));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(10));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(12));
+        assert!(code.read_symbol(&mut reader).is_err());
+
+        Ok(())
+    }
+
+    #[test]
+    fn from_lengths_additional() -> Result<()> {
+        let lengths = [
+            9, 10, 10, 8, 8, 8, 5, 6, 4, 5, 4, 5, 4, 5, 4, 4, 5, 4, 4, 5, 4, 5, 4, 5, 5, 5, 4, 6, 6,
+        ];
+        let code = HuffmanCoding::<Value>::from_lengths(&lengths)?;
+        let mut data: &[u8] = &[
+            0b11111000, 0b10111100, 0b01010001, 0b11111111, 0b00110101, 0b11111001, 0b11011111,
+            0b11100001, 0b01110111, 0b10011111, 0b10111111, 0b00110100, 0b10111010, 0b11111111,
+            0b11111101, 0b10010100, 0b11001110, 0b01000011, 0b11100111, 0b00000010,
+        ];
+        let mut reader = BitReader::new(&mut data);
+
+        assert_eq!(code.read_symbol(&mut reader)?, Value(10));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(7));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(27));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(22));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(9));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(0));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(11));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(15));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(2));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(20));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(8));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(4));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(23));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(24));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(5));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(26));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(18));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(12));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(25));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(1));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(3));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(6));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(13));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(14));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(16));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(17));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(19));
+        assert_eq!(code.read_symbol(&mut reader)?, Value(21));
+
+        Ok(())
+    }
 }
