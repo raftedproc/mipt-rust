@@ -20,6 +20,7 @@ members = [
     "problems/macros/fswalk",
     "problems/macros/gc",
     "problems/macros/mini-frunk",
+    "problems/macros-2/orm",
 
     # Tools
     "tools/rover",
