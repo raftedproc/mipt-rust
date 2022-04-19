@@ -46,7 +46,7 @@
       score: 100
 - group:    Borrowing
   start:    28-03-2022 00:00
-  deadline: 19-04-2022 23:59
+  deadline: 20-04-2022 23:59
   tasks:
     - task: pstack
       score: 100
