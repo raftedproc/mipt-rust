@@ -78,7 +78,7 @@ fn jumbled_fields() {
 
 #[cfg(feature = "compilation-fail-generic")]
 #[test]
-fn compilation_fail_ypes_test() {
+fn compilation_fail_generic() {
     let person = Person {
         first_name: "Humpty",
         last_name: "Drumpty",

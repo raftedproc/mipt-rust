@@ -11,7 +11,7 @@ impl Context {
     }
 
     // fn insert(&mut self, key: ..., obj: ...);
-    // fn get(&mut self, key: ...);
+    // fn get(&self, key: ...);
     // fn insert_singletone(&mut self, obj: ...);
     // fn get_singletone(&self);
 }

@@ -1,6 +1,6 @@
-use tempdir::TempDir;
-use std::{fs, io, path::Path};
 use fswalk::{Handle, Walker};
+use std::{fs, io, path::Path};
+use tempdir::TempDir;
 
 ////////////////////////////////////////////////////////////////////////////////
 

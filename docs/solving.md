@@ -32,7 +32,7 @@ This document describes how to work with course problems.
 - `cargo build` - build the project.
 - `cargo test` - (re)build and run all tests. You must be in the problem's directory.
 - `cargo test -j 1` - Run tests sequentially. By default, cargo runs tests in parallel, up to your number of CPUs.
-- `clippy test -- --nocapture` - this will show you the runtime output of the tests. Useful when debugging.
+- `cargo test -- --nocapture` - this will show you the runtime output of the tests. Useful when debugging.
 - `cargo fmt` - format the code according to the Rust code style.
 - `cargo clippy` - lint the code; it will show you some cool ways to improve your code find typos and even bugs.
 - `cargo fix` - automatically fix warnings of the compiler.

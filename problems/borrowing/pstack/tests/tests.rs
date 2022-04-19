@@ -37,18 +37,25 @@ fn persistence() {
         let stack = stacks[i].clone();
         assert_eq!(stack.len(), i);
 
+        let mut cnt = 0;
         for (item, i) in stack.iter().zip((0..i).rev()) {
             assert_eq!(i, *item);
+            cnt += 1;
         }
+        assert_eq!(i, cnt);
+        drop(stack);
     }
 
     for i in 100..201 {
         let stack = stacks[i].clone();
         assert_eq!(stack.len(), 200 - i);
 
+        let mut cnt = 0;
         for (item, i) in stack.iter().zip((0..200 - i).rev()) {
             assert_eq!(i, *item);
+            cnt += 1;
         }
+        assert_eq!(200 - i, cnt);
     }
 }
 

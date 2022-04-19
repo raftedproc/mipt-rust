@@ -73,12 +73,11 @@ fn round_trip() {
 
 #[cfg(feature = "compilation-fail-labelled")]
 #[test]
-fn compilation_fail_types_test() {
+fn compilation_fail_labelled() {
     let person = Person {
         first_name: "Humpty",
         last_name: "Drumpty",
         age: 3,
     };
-    let jumbled_person: JumbledPerson = labelled_convert_from(person);
-    assert_eq!(person.first_name, jumbled_person.last_name);
+    let _jumbled_person: JumbledPerson = labelled_convert_from(person);
 }

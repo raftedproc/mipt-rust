@@ -145,7 +145,7 @@ fn performance2() {
 }
 
 #[test]
-#[timeout(600)]
+#[timeout(1500)]
 fn performance3() {
     let count = 1000000;
     let mut rng = rand::thread_rng();

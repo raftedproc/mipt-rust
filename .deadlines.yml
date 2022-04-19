@@ -46,7 +46,7 @@
       score: 100
 - group:    Borrowing
   start:    28-03-2022 00:00
-  deadline: 20-04-2022 23:59
+  deadline: 19-04-2022 23:59
   tasks:
     - task: pstack
       score: 100
@@ -64,3 +64,9 @@
       score: 300
     - task: mini-frunk
       score: 700
+- group:    Macros 2
+  start:    19-04-2022 00:00
+  deadline: 10-05-2022 23:59
+  tasks:
+    - task: orm
+      score: 100

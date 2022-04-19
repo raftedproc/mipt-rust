@@ -44,11 +44,11 @@ The tests verify that errors have specific substring for some cases in this case
 
 - The number of bytes in the `gzip` footer is not as expected: "length check failed".
 - The CRC32 is not equal to the one on the `gzip` footer: "crc32 check failed".
-- Wrong values of first two bytes in the `gzip` header: "wrong id values".
+- Wrong values of the first two bytes in the `gzip` header: "wrong id values".
 - The CRC16 is not equal to the one on the `gzip` header: "header crc16 check failed".
-- Unknown block type in `gzip` header: "unsupported block type"
-- Unknown compression method in `deflate` header: "unsupported compression method"
-- In block `BTYPE = 00` the `LEN == !NLEN` is violated: "nlen check failed"
+- Unknown compression method in `gzip` header: "unsupported compression method".
+- Unknown block type in `deflate` header: "unsupported block type".
+- In block `BTYPE = 00` the `LEN == !NLEN` is violated: "nlen check failed".
 
 ## Tips
 

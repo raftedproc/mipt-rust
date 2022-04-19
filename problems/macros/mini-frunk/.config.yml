@@ -16,7 +16,4 @@ steps:
     - cargo-clippy
   testing:
     - cargo-test
-    - cargo-test-compile:
-      - compilation-fail-generic: "error[E0271]: type mismatch resolving"
-      - compilation-fail-labelled: "error[E0271]: type mismatch resolving"
-      - compilation-fail-transform: "error[E0277]: the trait bound"
+    - cargo-compile-test-mini-frunk

@@ -4,7 +4,7 @@ In this problem, you'll implement the small part of the [`frunk`](https://crates
 
 ## Motivation
 
-Imagine you're processing JSONs in your service. Eventually, you'll want to transform one JSON into another. The only alternative we currently heard of is the `serde` crate, which enables us not only to serialize and deserialize types but also to use the deserialized structure as a map.
+Imagine you're processing JSONs in your service. Eventually, you'll want to transform one JSON into another. The only alternative we currently heard of is the `serde` crate, which enables us to serialize and deserialize types.
 
 ```json
 }
@@ -232,11 +232,16 @@ It's recommended to read tests to understand what's required.
 
     So, we'll add another argument called `Indices` to represent the path to the target. New base of induction: `Head = Target` and `Indices = Here`. Step: we are generic over `TailIndices` and implement `Plucker<Target, There<TailIndices>> for HCons<Head, Tail>`. Since we are implementing `Plucker` with different generics, it's different implementations and the compiler won't be angry!
 
+    The same applies to `Sculptor` and `Transmogrifier`.
+
 Just notable: all of this code will be optimized to **zero-cost abstraction**!
 
 ## Links
 
-- [Structural Typing in Rust](https://beachape.com/blog/2021/05/25/structural-typing-in-rust/) - How `frunk` works. From the author of `frunk`.
+- [Rust Generic (Not Generics)](https://beachape.com/blog/2017/02/04/rust-generic-not-generics/) - About `Generic`. From the author of `frunk`.
+- [LabelledGeneric in Rust: What, Why, How?](https://beachape.com/blog/2017/03/04/labelledgeneric-in-rust-what-why-how/) - About `LabelledGeneric`.
+- [Gentle Intro to Type-level Recursion in Rust: From Zero to HList Sculpting](https://beachape.com/blog/2017/03/12/gentle-intro-to-type-level-recursion-in-Rust-from-zero-to-frunk-hlist-sculpting/#plucking-from-hlists) - About `Plucker`.
+- [Boilerplate-free Struct Transforms in Rust](https://beachape.com/blog/2017/04/12/boilerplate-free-struct-transforms-in-rust/) - How `transmogrify` works.
 - [(Russian) Heterogeneous lists in Rust and their superpowers](https://www.youtube.com/watch?v=Zps2tH8XOm4&list=PLRdS-n5seLRroZ480sDtes06hn6_M7N_i&index=6) - The exact thing we're writing.
 
 ## Notes

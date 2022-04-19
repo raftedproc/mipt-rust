@@ -17,4 +17,3 @@ Implement the following interface:
 ## Questions
 
 - Why do we require `get` to provide a type `T`?
-- Why `insert` cannot return an old value?

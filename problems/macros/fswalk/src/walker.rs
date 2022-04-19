@@ -1,5 +1,5 @@
 #![forbid(unsafe_code)]
-use crate::handle::{FileHandle, DirHandle, Handle};
+use crate::handle::{DirHandle, FileHandle, Handle};
 
 type Callback<'a> = dyn FnMut(&mut Handle) + 'a;
 

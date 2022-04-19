@@ -104,6 +104,71 @@ impl Toolchain {
                 }
                 Ok(())
             }
+            Command::CargoCompileTestMiniFrunk => {
+                // TODO: hardcoded, better to refactor all the code
+                if process::Command::new("cargo")
+                    .current_dir(context.get_workdir())
+                    .arg("test")
+                    .arg("--features")
+                    .arg("compilation-fail-generic")
+                    .status()
+                    .context("command failed")?
+                    .success()
+                {
+                    bail!("command failed")
+                }
+                if process::Command::new("cargo")
+                    .current_dir(context.get_workdir())
+                    .arg("test")
+                    .arg("--features")
+                    .arg("compilation-fail-labelled")
+                    .status()
+                    .context("command failed")?
+                    .success()
+                {
+                    bail!("command failed")
+                }
+                if process::Command::new("cargo")
+                    .current_dir(context.get_workdir())
+                    .arg("test")
+                    .arg("--features")
+                    .arg("compilation-fail-transmogrify")
+                    .status()
+                    .context("command failed")?
+                    .success()
+                {
+                    bail!("command failed")
+                }
+                println!("Compile tests passed, don't worry :)");
+                Ok(())
+            }
+            Command::CargoCompileTestOrm => {
+                // TODO: hardcoded, better to refactor all the code
+                if process::Command::new("cargo")
+                    .current_dir(context.get_workdir())
+                    .arg("test")
+                    .arg("--features")
+                    .arg("test-lifetimes-create")
+                    .status()
+                    .context("command failed")?
+                    .success()
+                {
+                    bail!("command failed")
+                }
+                if process::Command::new("cargo")
+                    .current_dir(context.get_workdir())
+                    .arg("test")
+                    .arg("--features")
+                    .arg("test-lifetimes-get")
+                    .status()
+                    .context("command failed")?
+                    .success()
+                {
+                    bail!("command failed")
+                }
+                println!("Compile tests passed, don't worry :)");
+                Ok(())
+            }
             Command::CargoFmt | Command::CargoClippy | Command::CargoTest | Command::PythonTest => {
                 launch!(self, command, context)
             }
