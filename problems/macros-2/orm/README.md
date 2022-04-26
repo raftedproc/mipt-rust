@@ -2,6 +2,8 @@
 
 In this project, we'll write an [Object-relational mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) library.
 
+In practice, you'll want to use crate [diesel](https://crates.io/crates/diesel) as your ORM library.
+
 Before continuing, install the SQLite3 driver. On Linux, you need the `libsqlite3-dev` package.
 
 ## Motivation
