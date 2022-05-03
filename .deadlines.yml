@@ -70,3 +70,13 @@
   tasks:
     - task: orm
       score: 100
+- group:    Parallel computing
+  start:    03-05-2022 00:00
+  deadline: 10-06-2022 23:59
+  tasks:
+    - task: thread-pool
+      score: 200
+    - task: tcp-proxy
+      score: 200
+    - task: pargrep
+      score: 200

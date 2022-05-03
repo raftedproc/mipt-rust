@@ -12,7 +12,7 @@ This document contains additional reading links and videos. It's not necessary t
 - [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/about.html) - Official set of recommendations on how to design and present APIs.
 - [The Little Book of Rust Macros](https://danielkeep.github.io/tlborm/book/index.html) - Starter book about Rust Macros.
 - [Rust Design Patterns](https://rust-unofficial.github.io/patterns/intro.html) - Good practices of Rust programming.
-- [The Rustonomicon](https://doc.rust-lang.org/nomicon/index.html) - The book about Unsafe Rust. In addition, it covers some advanced safe topics such as ownership.
+- [The Rustonomicon](https://doc.rust-lang.org/nomicon/index.html) - The book about Unsafe Rust. In addition, it covers some advanced safety topics such as an ownership.
 - [Rust's Unsafe Code Guidelines Reference (UCG WG)](https://rust-lang.github.io/unsafe-code-guidelines/introduction.html)
 - [The Rust Performance Book](https://nnethercote.github.io/perf-book/title-page.html) - The book about optimizing Rust code.
 - [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/01_getting_started/01_chapter.html) - Introduction to asynchronous programming.

@@ -21,6 +21,9 @@ members = [
     "problems/macros/gc",
     "problems/macros/mini-frunk",
     "problems/macros-2/orm",
+    "problems/parallel/thread-pool",
+    "problems/parallel/pargrep",
+    "problems/parallel/tcp-proxy",
 
     # Tools
     "tools/rover",

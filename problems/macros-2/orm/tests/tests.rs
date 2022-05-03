@@ -632,6 +632,41 @@ fn missing_column_renamed() {
     }
 }
 
+#[test]
+fn rollback() {
+    let mut conn = Connection::open_in_memory().unwrap();
+
+    let user = User {
+        name: "DanilaBorisov".into(),
+        picture: b"myVKpasswordIS:oigwy8sdvo"[..].into(),
+        visits: i64::MAX,
+        balance: 220.,
+        is_admin: true,
+    };
+    let tx = conn.new_transaction().unwrap();
+    let tx_user = tx.create(user.clone()).unwrap();
+    let user_id = tx_user.id();
+
+    tx.rollback().unwrap();
+
+    let tx = conn.new_transaction().unwrap();
+    let res = tx.get::<User>(user_id);
+    assert_not_found(res, user_id, "User");
+
+    let tx_user = tx.create(user.clone()).unwrap();
+    let user_id = tx_user.id();
+    tx.commit().unwrap();
+
+    let tx = conn.new_transaction().unwrap();
+    let res = tx.get::<User>(user_id).unwrap();
+    res.borrow_mut().balance = 0.;
+    tx.rollback().unwrap();
+
+    let tx = conn.new_transaction().unwrap();
+    let tx_user = tx.get::<User>(user_id).unwrap();
+    assert_eq!(tx_user.borrow().balance, 220.);
+}
+
 #[cfg(feature = "test-lifetimes-create")]
 #[test]
 fn lifetimes_create() {
