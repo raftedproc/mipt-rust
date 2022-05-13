@@ -7,6 +7,7 @@ use std::{
 };
 
 const FORBID_UNSAFE_LINE: &str = "#![forbid(unsafe_code)]";
+const FORBID_STD_LINE: &str = "#![no_std]";
 const FORBID_COLLECTIONS_PATTERNS: [&str; 8] = [
     "BTreeMap",
     "BTreeSet",
@@ -95,11 +96,28 @@ impl Toolchain {
                         let line = line.context("error reading file line")?;
                         for pattern in FORBID_COLLECTIONS_PATTERNS {
                             if line.contains(pattern) {
-                                bail!(format!(
-                                    "file {file:?} contains line '{pattern}'"
-                                ))
+                                bail!(format!("file {file:?} contains line '{pattern}'"))
                             }
                         }
+                    }
+                }
+                Ok(())
+            }
+            Command::ForbidStd => {
+                for file in context.get_user_files() {
+                    if let Some(line) = BufReader::new(File::open(file)?)
+                        .lines()
+                        .next()
+                        .transpose()?
+                    {
+                        if line != FORBID_STD_LINE {
+                            bail!(format!(
+                                "file {file:?} does not contain line '{FORBID_STD_LINE}'"
+                            ))
+                        }
+                    } else {
+                        // TODO: ForbidStd shouldn't check whether file is empty
+                        bail!(format!("file {file:?} is empty"))
                     }
                 }
                 Ok(())
@@ -169,7 +187,27 @@ impl Toolchain {
                 println!("Compile tests passed, don't worry :)");
                 Ok(())
             }
-            Command::CargoFmt | Command::CargoClippy | Command::CargoTest | Command::PythonTest => {
+            Command::CargoCompileTestSnapshot => {
+                // TODO: hardcoded, better to refactor all the code
+                if process::Command::new("cargo")
+                    .current_dir(context.get_workdir())
+                    .arg("test")
+                    .arg("--features")
+                    .arg("test-lifetime")
+                    .status()
+                    .context("command failed")?
+                    .success()
+                {
+                    bail!("command failed")
+                }
+                println!("Compile tests passed, don't worry :)");
+                Ok(())
+            }
+            Command::CargoFmt
+            | Command::CargoClippy
+            | Command::CargoTest
+            | Command::PythonTest
+            | Command::CargoMiriTest => {
                 launch!(self, command, context)
             }
         }

@@ -24,6 +24,9 @@ members = [
     "problems/parallel/thread-pool",
     "problems/parallel/pargrep",
     "problems/parallel/tcp-proxy",
+    "problems/unsafe/smol-vec",
+    "problems/unsafe/snapshot",
+    "problems/async/babencoin",
 
     # Tools
     "tools/rover",
