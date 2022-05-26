@@ -1,5 +1,5 @@
 #![forbid(unsafe_code)]
-use crate::hlist::{HNil, HCons};
+use crate::hlist::{HCons, HNil};
 use crate::labelled::LabelledGeneric;
 
 pub enum Here {}

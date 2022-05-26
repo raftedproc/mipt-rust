@@ -1,2 +1,4 @@
 #[allow(unused)]
-pub struct Foo { bar: crate::two::Bar }
+pub struct Foo {
+    bar: crate::two::Bar,
+}

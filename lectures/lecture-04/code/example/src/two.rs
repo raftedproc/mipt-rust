@@ -1,2 +1,3 @@
-pub struct Bar { /* ... */ }
-pub fn use_me() { /* ... */ }
+pub struct Bar {/* ... */}
+pub fn use_me() { /* ... */
+}

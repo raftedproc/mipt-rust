@@ -21,7 +21,6 @@ use std::{
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const NODE_BINARY_PATH: &str = "../../../target/debug/babencoin";
 const TEST_ARTIFACTS_PATH: &str = "./test_artifacts";
 const DEFAULT_READ_TIMEOUT: Duration = Duration::from_secs(3);
 
@@ -87,7 +86,13 @@ impl Env {
             .open(&log_file_path)
             .unwrap();
 
-        let node = Command::new(NODE_BINARY_PATH)
+        let binary_path = if cfg!(debug_assertions) {
+            "../../../target/debug/babencoin"
+        } else {
+            "../../../target/release/babencoin"
+        };
+
+        let node = Command::new(binary_path)
             .args(&["-c", config_path.to_str().unwrap()])
             .env("RUST_BACKTRACE", "1")
             .stderr(log_file)

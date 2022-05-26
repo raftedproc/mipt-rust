@@ -1,12 +1,12 @@
-use crossbeam::channel::{Sender, Receiver, unbounded};
-use futures::task::{ArcWake, waker_ref};
+use crossbeam::channel::{unbounded, Receiver, Sender};
+use futures::task::{waker_ref, ArcWake};
 use std::{
-    pin::Pin,
     future::Future,
-    time::Duration,
-    task::{Waker, Context, Poll},
+    pin::Pin,
     sync::{Arc, Mutex},
+    task::{Context, Poll, Waker},
     thread,
+    time::Duration,
 };
 
 pub struct TimerFuture {
@@ -24,9 +24,7 @@ struct SharedState {
 
 impl Future for TimerFuture {
     type Output = ();
-    fn poll(
-        self: Pin<&mut Self>, cx: &mut Context<'_>
-    ) -> Poll<Self::Output> {
+    fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
         let mut state = self.state.lock().unwrap();
         if state.completed {
             Poll::Ready(())
@@ -42,7 +40,8 @@ impl Future for TimerFuture {
 impl TimerFuture {
     pub fn new(duration: Duration) -> Self {
         let state = Arc::new(Mutex::new(SharedState {
-            completed: false, waker: None,
+            completed: false,
+            waker: None,
         }));
         let thread_state = state.clone();
         thread::spawn(move || {

@@ -65,7 +65,7 @@ async fn recv_all(mut receiver: tokio::sync::mpsc::Receiver<Page>) -> Vec<Page> 
 //////////////////////////////////////////////////////////////////////////////
 
 #[tokio::test]
-async fn test_simple() {
+async fn simple() {
     let server = run_server(&[("/", "Hello, world!")]).await;
     let mut cr = Crawler::new(Config::default());
     let pages = recv_all(cr.run(format!("http://localhost:{}/", server.port))).await;
@@ -76,7 +76,7 @@ async fn test_simple() {
 }
 
 #[tokio::test]
-async fn test_circular() {
+async fn circular() {
     let server = run_server(&[
         ("/", "Hello, world!\n Go here: http://localhost:$port/foo"),
         ("/foo", "Foo!\n Go here: http://localhost:$port/"),
@@ -106,7 +106,7 @@ async fn test_circular() {
 }
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 4)]
-async fn test_concurrency() {
+async fn concurrency() {
     let port = thread_rng().gen_range(49152..=65535);
 
     let concurrency_counter = Arc::new(AtomicUsize::new(0));

@@ -2,8 +2,8 @@
 
 use futures::future::select_all;
 use linkify::{LinkFinder, LinkKind};
-use tokio::sync::mpsc::{channel, Receiver, Sender};
 use std::collections::HashSet;
+use tokio::sync::mpsc::{channel, Receiver, Sender};
 
 #[derive(Clone, Default)]
 pub struct Config {

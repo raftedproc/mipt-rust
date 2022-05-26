@@ -145,11 +145,11 @@ The node consists of three services, each running in a separate thread, communic
         │                │
         │ Gossip service │
         │                │
-        └─────┬──────────┘
-              │   ▲
-   MiningInfo │   │ Block
-              ▼   │
-        ┌─────────┴──────┐
+        └──────┬─────────┘
+               │   ▲
+    MiningInfo │   │ Block
+               ▼   │
+        ┌──────────┴─────┐
         │                │
         │ Mining service │
         │                │

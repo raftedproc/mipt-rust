@@ -23,7 +23,7 @@ fn genesis_mining() {
     config.mining_service.thread_count = 1;
     config.mining_service.public_key = generate_public_key().into();
 
-    let env = test_env!("test_genesis_mining", config);
+    let env = test_env!("genesis_mining", config);
     let mut conn = env.connect_to_node().unwrap();
 
     let mut block_forest = BlockForest::new();
@@ -72,7 +72,7 @@ fn no_repeated_parents() {
     config.mining_service.thread_count = 1;
     config.mining_service.public_key = generate_public_key().into();
 
-    let env = test_env!("test_no_repeated_parents", config);
+    let env = test_env!("no_repeated_parents", config);
     let mut conn = env.connect_to_node().unwrap();
 
     let mut seen_prev_hashes = HashSet::new();
@@ -116,7 +116,7 @@ fn test_mining_difficulty() {
     config.mining_service.thread_count = 1;
     config.mining_service.public_key = generate_public_key().into();
 
-    let env = test_env!("test_minig_difficulty", config);
+    let env = test_env!("mining_difficulty", config);
     let mut conn = env.connect_to_node().unwrap();
 
     for block in blocks.iter().skip(1).rev() {
@@ -163,7 +163,7 @@ fn max_tx_per_block() {
     config.mining_service.max_tx_per_block = 2;
     config.mining_service.public_key = generate_public_key().into();
 
-    let env = test_env!("test_max_tx_per_block", config);
+    let env = test_env!("max_tx_per_block", config);
     let mut conn = env.connect_to_node().unwrap();
 
     for tx in transactions.iter() {

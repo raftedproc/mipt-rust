@@ -1,2 +1,4 @@
 pub mod nested;
-trait MyTrait { /* ... */ }
+trait MyTrait {
+    /* ... */
+}

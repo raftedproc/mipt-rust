@@ -206,6 +206,7 @@ impl Toolchain {
             Command::CargoFmt
             | Command::CargoClippy
             | Command::CargoTest
+            | Command::CargoTestDebug
             | Command::PythonTest
             | Command::CargoMiriTest => {
                 launch!(self, command, context)

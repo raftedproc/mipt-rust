@@ -9,4 +9,4 @@ steps:
     - cargo-fmt
     - cargo-clippy
   testing:
-    - cargo-test
+    - cargo-test-debug

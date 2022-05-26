@@ -20,10 +20,7 @@ impl Default for HNil {
 
 impl<H, T> HCons<H, T> {
     pub fn new(head: H, tail: T) -> Self {
-        Self {
-            head,
-            tail,
-        }
+        Self { head, tail }
     }
 }
 
