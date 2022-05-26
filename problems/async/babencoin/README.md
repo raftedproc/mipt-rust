@@ -222,8 +222,8 @@ You are required to implement only the logic of `PeerService`, `GossipService`, 
 ## 4. Hints
 
 - In `PeerService`, you will most likely need two threads per TCP connection: one thread
-serves reads, the other - writes;
-- To serialize/deserialize messages, use `serde_json::from_str()` and `serde_json::to_writer()`;
+serves reads, the other - writes.
+- To serialize/deserialize messages, use `serde_json::from_str()` and `serde_json::to_writer()`.
 - In `GossipService`, use the `select!()` macro from crossbeam to read from multiple channels at the same time.
 
 ## 5. Testing

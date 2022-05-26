@@ -41,10 +41,9 @@ Entities methods:
 
 Each of these methods returns a reference (or iterator over references) to another snapshot object **with the same lifetime as** `&self`. Thus, having a snapshot, you can navigate over it: all references you receive have a snapshot lifetime.
 
-## Object statistics
+## Object metrics
 
-We suggest that you also calculate for each object
-some of its statistics and put them in the attributes of this object. Namely:
+For each object you should calculate some metrics and put them into the attributes. Namely:
 
 - For `PodSet`:
   - `resource_requests` - total count of resource requests for pods of this subset.

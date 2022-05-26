@@ -26,6 +26,7 @@ members = [
     "problems/parallel/tcp-proxy",
     "problems/unsafe/smol-vec",
     "problems/unsafe/snapshot",
+    "problems/async/crawler",
     "problems/async/babencoin",
 
     # Tools
@@ -33,4 +34,6 @@ members = [
 
     # Additional
     "lectures/lecture-04/code/example",
+    "lectures/lecture-08/code/echo",
+    "lectures/lecture-08/code/simple-runtime",
 ]

@@ -24,16 +24,16 @@ To make cargo use the nightly compiler, run:
 cargo +nightly test
 ```
 
-## MIRI interpreter
+## Miri interpreter
 
-When writing unsafe code, you'll want to check it for memory unsafety and undefined behavior. One of the tools to help us is [MIRI](https://github.com/rust-lang/miri). Don't forget to install [nightly compiler](#nightly-compiler)!
+When writing unsafe code, you'll want to check it for memory unsafety and undefined behavior. One of the tools to help us is [Miri](https://github.com/rust-lang/miri). Don't forget to install [nightly compiler](#nightly-compiler)!
 
 ```sh
 rustup +nightly component add miri
 cargo install xargo
 ```
 
-To make cargo use MIRI, run:
+To make cargo use Miri, run:
 
 ```sh
 cargo +nightly miri test # To run tests with MIRI
