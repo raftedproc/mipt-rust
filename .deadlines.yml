@@ -72,7 +72,7 @@
       score: 100
 - group:    Parallel computing
   start:    03-05-2022 00:00
-  deadline: 10-06-2022 23:59
+  deadline: 13-06-2022 23:59
   tasks:
     - task: thread-pool
       score: 200
@@ -82,7 +82,7 @@
       score: 200
 - group:    Unsafe code
   start:    03-05-2022 00:00
-  deadline: 10-06-2022 23:59
+  deadline: 13-06-2022 23:59
   tasks:
     - task: smol-vec
       score: 200
@@ -90,7 +90,7 @@
       score: 200
 - group:    Asynchronous computing
   start:    03-05-2022 00:00
-  deadline: 10-06-2022 23:59
+  deadline: 13-06-2022 23:59
   tasks:
     - task: crawler
       score: 200
