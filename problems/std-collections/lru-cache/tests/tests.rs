@@ -109,7 +109,7 @@ fn small_capacity() {
     let mut cache = LRUCache::new(10);
     let mut naive = NaiveLRUCache::new(10);
     let mut rng = rand::thread_rng();
-    for _ in 0..500000 {
+    for _ in 0..100 {
         if rng.gen_range(0..3) == 0 {
             let key = rng.gen_range(0..30);
             assert_eq!(cache.get(&key), naive.get(&key));

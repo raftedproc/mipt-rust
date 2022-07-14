@@ -2,25 +2,113 @@
 
 use std::collections::{BTreeMap, HashMap};
 use std::hash::Hash;
+use std::ops::Deref;
 
 #[derive(Debug)]
 pub struct LRUCache<K, V> {
-    // TODO: your code goes here.
+    a_: Vec<V>,
+    hm_: HashMap<K, (usize, usize)>,
+    epoch_set_: BTreeMap<usize, K>,
+    epoch_: usize,
+    free_slot_idx_: usize,
 }
 
-impl<K: Clone + Hash + Ord, V> LRUCache<K, V> {
+impl<K: Clone + Hash + Ord, V /* + std::fmt::Debug */> LRUCache<K, V> {
     pub fn new(capacity: usize) -> Self {
         // TODO: your code goes here.
-        unimplemented!()
+        println!("new");
+        if capacity == 0 {
+            panic!("Can not create LRUCache w capacity = 0.");
+        }
+        Self {
+            a_: Vec::with_capacity(capacity + 1),
+            hm_: HashMap::with_capacity(capacity),
+            epoch_set_: BTreeMap::new(),
+            epoch_: 1,
+            free_slot_idx_: capacity - 1,
+        }
     }
 
     pub fn get(&mut self, key: &K) -> Option<&V> {
         // TODO: your code goes here.
-        unimplemented!()
+        println!("get ");
+        let idx_epoch_tupl = self.hm_.get(key).map(|t| t.clone());
+        if idx_epoch_tupl == None {
+            println!("get() returns None ");
+            return None;
+        }
+        let (idx, epoch) = idx_epoch_tupl.unwrap();
+        self.epoch_set_.remove(&epoch);
+        self.epoch_set_.insert(self.epoch_, key.clone());
+        println!(
+            "get() re-set the epoch {} for idx {} to {}",
+            epoch, idx, self.epoch_
+        );
+        self.epoch_ += 1;
+        self.a_.get(idx)
     }
 
     pub fn insert(&mut self, key: K, value: V) -> Option<V> {
         // TODO: your code goes here.
-        unimplemented!()
+        let arr_len = self.a_.len();
+        println!("insert len {:?} hm_.len {:?}", arr_len, self.hm_.len());
+        if arr_len == self.a_.capacity() - 1 {
+            println!("insert {} == {}", arr_len.clone(), self.a_.capacity() - 1);
+            let idx_epoch = self.hm_.get(&key);
+            // No key in the hashmap so replacing the oldest LRU element
+            if let None = idx_epoch {
+                // get the oldest key to replace
+                println!("insert epoch_set_ len {}", self.epoch_set_.len());
+                let (epoch, key_2_replace) = self
+                    .epoch_set_
+                    .iter()
+                    .next()
+                    .map(|t| (t.0.clone(), t.1.clone()))
+                    .unwrap();
+                // Invariant. There must be a key so unwrap and panic if needed.
+                println!("insert removing epoch {}", epoch);
+                let (idx, epoch_to_remove) =
+                    self.hm_.get(&key_2_replace).map(|t| t.clone()).unwrap();
+                self.epoch_set_.remove(&epoch_to_remove);
+                self.epoch_set_.insert(self.epoch_, key.clone());
+
+                println!("insert idx {} epoch {}", idx, self.epoch_);
+                self.a_[idx] = value;
+                self.hm_.insert(key, (idx, self.epoch_));
+                self.epoch_ += 1;
+                self.hm_.remove(&key_2_replace);
+                return None;
+            } else {
+                // found the entry so return Some(x)
+                let (idx, epoch) = (idx_epoch.map(|t| (t.0.clone(), t.1.clone()))).unwrap();
+                self.a_.push(value);
+                self.epoch_set_.remove(&epoch);
+                self.epoch_set_.insert(self.epoch_, key);
+                self.epoch_ += 1;
+                Some(self.a_.swap_remove(idx))
+            }
+        } else {
+            let idx_epoch = self.hm_.get(&key);
+            if let None = idx_epoch {
+                self.a_.push(value);
+                println!(
+                    "insert some empty space 1 idx {} and epoch {}",
+                    self.a_.len() - 1,
+                    self.epoch_
+                );
+                self.epoch_set_.insert(self.epoch_, key.clone());
+                println!("insert free space epoch_set_ len {}", self.epoch_set_.len());
+
+                self.hm_.insert(key, (arr_len, self.epoch_)); // can do ? here
+                self.epoch_ += 1;
+                return None; // inserted into the cache w/o eviction so return None
+            }
+            let (idx, epoch) = (idx_epoch.map(|t| (t.0.clone(), t.1.clone()))).unwrap();
+            self.a_.push(value);
+            self.epoch_set_.remove(&epoch);
+            self.epoch_set_.insert(self.epoch_, key);
+            self.epoch_ += 1;
+            Some(self.a_.swap_remove(idx))
+        }
     }
 }
