@@ -9,9 +9,9 @@ use rand::{rngs::StdRng, seq::SliceRandom, Rng, SeedableRng};
 use tempfile::{NamedTempFile, TempPath};
 
 const BINARY_PATH: &str = if cfg!(debug_assertions) {
-    "../../../target/debug/comm"
+    "/git/std-collections/comm/target/debug/comm"
 } else {
-    "../../../target/release/comm"
+    "/git/std-collections/comm/target/release/comm"
 };
 
 fn run_comm(first: &[&str], second: &[&str]) -> Vec<String> {
