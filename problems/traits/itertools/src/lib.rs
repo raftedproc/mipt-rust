@@ -52,50 +52,6 @@ where
 {
     type Item = I::Item;
     fn next(&mut self) -> Option<Self::Item> {
-        // println!("next enter!!!!!!!!!!!!!!!!!!!!!!!");
-        // if self.data_source_ == IterSource::Itr {
-        //     let res = self.iter_.next();
-        //     match res {
-        //         Some(x) => {
-        //             self.store1_.push_back(x.clone());
-        //             return Some(x);
-        //         }
-        //         None => {
-        //             self.data_source_ = IterSource::St;
-        //         }
-        //     }
-        // };
-        // if self.data_source_ == IterSource::St {
-        //     let res = self.store1_.pop_front();
-        //     match res {
-        //         Some(x) => {
-        //             self.store2_.push_back(x.clone());
-        //             return Some(x);
-        //         }
-        //         None => {
-        //             self.data_source_ = IterSource::St2;
-        //         }
-        //     }
-        // }
-        // if self.data_source_ == IterSource::St2 {
-        //     let res = self.store2_.pop_front();
-        //     match res {
-        //         Some(x) => {
-        //             println!("some from store1_");
-        //             self.store1_.push_back(x.clone());
-        //             return Some(x);
-        //         }
-        //         None => {
-        //             println!("None from store1_");
-        //             self.data_source_ = IterSource::St;
-        //             let res = self.store1_.pop_front().unwrap(); // assumes non-empty initial iter
-        //             self.store2_.push_back(res.clone());
-        //             return Some(res);
-        //         }
-        //     }
-        // }
-        // None
-
         if !self.iter_exchausted_ {
             let res = self.iter_.next();
             match res {
