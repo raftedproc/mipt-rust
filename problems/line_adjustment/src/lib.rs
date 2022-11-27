@@ -68,7 +68,6 @@ impl<'a> WordsWithSpacesIndices<'a> {
     }
 }
 
-// Unsafe позволит подхачить str, прибавив единицу к длине, чтобы не добавлятть пробелы в цикле.
 pub fn transform(input: &str, line_width: usize) -> String {
     let mut v: Vec<&str> = input.split_whitespace().collect();
     let mut r: Vec<WordsWithSpacesIndices> = vec![WordsWithSpacesIndices {
